@@ -1,0 +1,20 @@
+{
+  "description": "按金额及多级并列规则排名2023年东北区线上发票并输出有序前七名",
+  "task_statement": "data.csv 每行一张独立发票。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 筛选 created_at 在2023年、region 对应东北、status=PAID、channel 属于 WEB 或 APP 的发票。排序主键 amount 的十进制数值**降序**，次键 created_at 的 ISO 本地时间字符串**升序**，末键 invoice_id 字典序**升序**。必须先筛选再排序，取前7张（存在至少7张）；amount=9999.00 与其他字符串要按数值比较，不允许按字符串金额排序。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"top7_invoice_ids\":[7个字符串],\"rank7\":{\"invoice_id\":字符串,\"amount\":\"恰好两位小数的金额字符串\"}}；数组必须严格按照名次顺序，不允许排序成 ID 顺序、JSON 集合或逗号分隔文本。rank7 与数组的第7项必须一致。",
+  "hypothesized_failure_mode": "FM_FILTER_SORT",
+  "answer": {
+    "top7_invoice_ids": [
+      "I9001",
+      "I9002",
+      "I9003",
+      "I9004",
+      "I9005",
+      "I1171",
+      "I1129"
+    ],
+    "rank7": {
+      "invoice_id": "I1129",
+      "amount": "1800.00"
+    }
+  }
+}

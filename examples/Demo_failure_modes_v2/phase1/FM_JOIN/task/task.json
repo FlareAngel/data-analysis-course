@@ -1,0 +1,6 @@
+{
+  "description": "核算2023年东北区已结算订单的成功支付净额",
+  "task_statement": "data.csv 混合三种粒度。row_type=ORDER 是订单主表行，order_id 唯一，order_date、region、state 以该行为准；PAYMENT 是支付行，payment_id 唯一，order_id 是外键；REFUND 是退款行，通过 parent_payment_id 关联一笔支付，也有 order_id 但它不是判定退款归属的权威键。地区编码由 N/S（北/南）与 E/W（东/西）组成，CN=中部。先从 ORDER 中选出日期在2023年、东北、state=SETTLED 的订单；只纳入能关联该订单的 PAYMENT 中 state=SUCCESS 的支付金额；每笔成功支付扣除以其 payment_id 关联且 state=SUCCESS 的退款金额。失败/待处理支付、拒绝/待处理退款、孤儿支付及订单外记录都不计。所有金额使用 Decimal 精确求和并保留两位小数。输出 JSON {\"answer\": 数值}。",
+  "hypothesized_failure_mode": "FM_JOIN",
+  "answer": 1376.98
+}

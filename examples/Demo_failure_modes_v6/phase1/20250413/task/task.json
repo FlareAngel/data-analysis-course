@@ -1,0 +1,9 @@
+{
+  "description": "按洛杉矶交易当地日期适用历史汇率核算东北区美元收入",
+  "task_statement": "entity 为 RATE 的行记录汇率，从 effective_date 当地自然日 00:00 起生效，下一次更新前持续有效；USD、US$ 代表美元，EUR、EURO 代表欧元，RATE 行 rate_to_usd 为每一原币单位折合多少美元。TXN 行 occurred_at 为 UTC，先转换为 America/Los_Angeles 当地日期，再针对对应币种选生效日期不晚于交易当地日期的最近一档汇率；NE、N-E 为东北，PAID、OK 均表示有效支付。用 Decimal 对 amount 乘汇率，所有合格交易的未舍入美元金额先求和，最后仅对总额用 ROUND_HALF_UP 保留两位小数，禁止逐笔先舍入，2024-03-10 的洛杉矶夏令时切换需要正确处理；仅统计当地日期为 2024-03-10 的交易，输出 {\"answer\":{\"txn_count\":整数,\"total_usd\":\"两位小数金额字符串\"}}。",
+  "hypothesized_failure_mode": "FM_NUMERICAL_PRECISION_ROUNDING",
+  "answer": {
+    "txn_count": 27,
+    "total_usd": "288.88"
+  }
+}

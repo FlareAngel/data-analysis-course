@@ -1,0 +1,6 @@
+{
+  "description": "避免一对多关联造成金额重复",
+  "task_statement": "数据文件：data.csv。orders是订单表，payments是支付流水表（通过record_type区分），仅统计有至少一笔success支付流水的订单金额；每个订单金额只计一次。输出元。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_JOIN",
+  "answer": 400.0
+}

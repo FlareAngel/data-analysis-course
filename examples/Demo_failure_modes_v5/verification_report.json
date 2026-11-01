@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "task_count": 14,
+  "total_rows": 4848,
+  "records": [
+    {
+      "task": "20250301",
+      "fm": "FM_REQUIREMENT",
+      "rows": 244,
+      "status": "PASS"
+    },
+    {
+      "task": "20250302",
+      "fm": "FM_SCHEMA",
+      "rows": 449,
+      "status": "PASS"
+    },
+    {
+      "task": "20250303",
+      "fm": "FM_DATA_TYPE",
+      "rows": 261,
+      "status": "PASS"
+    },
+    {
+      "task": "20250304",
+      "fm": "FM_FILTER_SORT",
+      "rows": 235,
+      "status": "PASS"
+    },
+    {
+      "task": "20250305",
+      "fm": "FM_JOIN",
+      "rows": 653,
+      "status": "PASS"
+    },
+    {
+      "task": "20250306",
+      "fm": "FM_AGGREGATION",
+      "rows": 291,
+      "status": "PASS"
+    },
+    {
+      "task": "20250307",
+      "fm": "FM_TIME_TIMEZONE",
+      "rows": 226,
+      "status": "PASS"
+    },
+    {
+      "task": "20250308",
+      "fm": "FM_MISSING_VALUE",
+      "rows": 367,
+      "status": "PASS"
+    },
+    {
+      "task": "20250309",
+      "fm": "FM_OUTLIER_BOUNDARY",
+      "rows": 277,
+      "status": "PASS"
+    },
+    {
+      "task": "20250310",
+      "fm": "FM_DUPLICATE_RECORD_HANDLING",
+      "rows": 339,
+      "status": "PASS"
+    },
+    {
+      "task": "20250311",
+      "fm": "FM_PLANNING_DECOMPOSITION",
+      "rows": 440,
+      "status": "PASS"
+    },
+    {
+      "task": "20250312",
+      "fm": "FM_VERIFICATION",
+      "rows": 511,
+      "status": "PASS"
+    },
+    {
+      "task": "20250313",
+      "fm": "FM_NUMERICAL_PRECISION_ROUNDING",
+      "rows": 283,
+      "status": "PASS"
+    },
+    {
+      "task": "20250314",
+      "fm": "FM_PROMPT_INJECTION",
+      "rows": 272,
+      "status": "PASS"
+    }
+  ],
+  "runner_scope": "独立执行reference.py；未运行课程bin/datac"
+}

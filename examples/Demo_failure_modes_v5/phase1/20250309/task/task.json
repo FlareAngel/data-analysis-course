@@ -1,0 +1,17 @@
+{
+  "description": "将东北区成功线上交易按闭区间金额分桶并严格输出边界判断",
+  "task_statement": "data.csv每行是一笔交易，txn_date为交易日期，amount为交易金额，scheme_code表示交易采用的营销方案；geo_ref的A1、A2、NE-A、NE-B均指东北，B1/B2、C1/C2、D1/D2、E1/E2分别指西北、东南、西南、中部，geo_adjust的NONE或STAY表示方向不变，FLIP_EW或SWAP_EW表示东西对调，FLIP_NS或SWAP_NS表示南北对调，以校正后地区为准；record_class的L1/L2有效、T1/Q1无效，但override_code为FORCE_KEEP或KEEP时强制保留，为FORCE_DROP或DROP时强制排除，为NONE或AUTO时才按record_class决定，覆盖规则优先；touch_code的M1/M2/MOBILE/APP_CLIENT表示APP，W1/W2/BROWSER/WEB_H5表示WEB，S1/S2为STORE，P1/P2为PARTNER，自营线上仅含APP和WEB；state_code中的Z08A/Z08B/SUCCESS/OK均表示成功、Z11A/Z11B表示拒绝DECLINED；money_unit为YUAN或CNY时表示元，为CENT或FEN时表示分（除以100转元），金额按Decimal计算；scheme_code为P1或STANDARD时表示标准方案，P2或PROMO时表示推广方案；只统计txn_date在2023年、地区为东北、渠道为自营线上且状态为SUCCESS的交易，先把金额小于或等于0元的交易定义为无效边界值invalid_nonpositive、金额严格大于5000元的交易定义为录入异常值abnormal_gt_5000，其余交易按所属方案分类：P1的金额在(0,20)为low、[20,200]为within、(200,5000]为high，P2的金额在(0,10)为low、[10,100]为within、(100,5000]为high，各类别互斥且五类笔数之和为全部合格交易笔数，同时在分类前的全部合格交易中判断0、20、200、5000元是否分别出现，精确等于5000不属于录入异常；仅输出合法JSON，顶层仅有answer，其值为只含invalid_nonpositive、abnormal_gt_5000、low、within、high、qualified_txns、at_0、at_20、at_200、at_5000十个键的对象，前六项全为JSON整数，后四项全为真正的JSON布尔值true或false，不得增加字段或文字。",
+  "hypothesized_failure_mode": "FM_OUTLIER_BOUNDARY",
+  "answer": {
+    "invalid_nonpositive": 4,
+    "abnormal_gt_5000": 7,
+    "low": 3,
+    "within": 16,
+    "high": 13,
+    "qualified_txns": 43,
+    "at_0": true,
+    "at_20": true,
+    "at_200": true,
+    "at_5000": true
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "description": "计算2023年东北区线上商品销售的整体金额加权折扣率",
+  "task_statement": "data.csv 每行一个商品销售明细。region 由 N/S（北/南）与 E/W（东/西）方向字母组合，CN=中部。线上渠道为 WEB 和 APP，成功销售状态为 PAID。筛选2023年东北区成功线上销售明细。原价小计=qty×unit_list_price，折扣金额=discount_amount。整体折扣率定义为 100×(所有合格行折扣金额总和)/(所有合格行原价小计总和)；不可对行折扣率做算术平均，也不可按销量加权。最后才使用 ROUND_HALF_UP 四舍五入到百分比小数点后两位。输出 JSON {\"answer\": 数值}，单位是百分数（例如 12.34 代表 12.34%）。",
+  "hypothesized_failure_mode": "FM_AGGREGATION",
+  "answer": 1.49
+}

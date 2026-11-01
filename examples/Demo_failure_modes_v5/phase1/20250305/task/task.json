@@ -1,0 +1,13 @@
+{
+  "description": "核对东北区结算订单关联支付退款并返回字符串货币对账表",
+  "task_statement": "data.csv同时记录订单、支付和退款，order_id为订单标识、payment_id为支付标识、parent_payment_id为退款所对应的支付标识；geo_ref的A1、A2、NE-A、NE-B均指东北，B1/B2、C1/C2、D1/D2、E1/E2分别指西北、东南、西南、中部，geo_adjust的NONE或STAY表示方向不变，FLIP_EW或SWAP_EW表示东西对调，FLIP_NS或SWAP_NS表示南北对调，以校正后地区为准；record_class的L1/L2有效、T1/Q1无效，但override_code为FORCE_KEEP或KEEP时强制保留，为FORCE_DROP或DROP时强制排除，为NONE或AUTO时才按record_class决定，覆盖规则优先；entity_code中的T11/T12/ORDER_ROW/ORDER_REC均代表订单ORDER，T21/T22/PAYMENT_ROW/PAY_REC均代表支付PAYMENT，T31/T32/REFUND_ROW/REFUND_REC均代表退款REFUND；state_code中的Z01A/Z01B/SETTLED/SET_OK表示已结算SETTLED、Z08A/Z08B/SUCCESS/OK表示成功SUCCESS，其余Z07A/Z07B、Z09A/Z09B、Z03A/Z03B、Z10A/Z10B分别表示CANCELLED、FAILED、PENDING、REJECTED；money_unit为YUAN或CNY时表示元，为CENT或FEN时表示分（除以100转元），金额按Decimal计算；先筛选order_date在2023年、地区为东北且状态为SETTLED的ORDER，再按PAYMENT.order_id关联这些订单并只保留SUCCESS的支付，最后按REFUND.parent_payment_id关联已保留支付并只保留SUCCESS的退款，退款行自带order_id不作为关联依据，成功支付按payment_id各计算一次，净收入等于成功支付金额总和减去成功退款金额总和；仅输出合法JSON，顶层仅有answer，其值为只含settled_order_count、successful_payment_count、successful_refund_count、gross_paid、refunded、net_received六个键的对象，前三项是JSON整数，后三项是恰好两位小数的金额字符串，不得增加字段或文字。",
+  "hypothesized_failure_mode": "FM_JOIN",
+  "answer": {
+    "settled_order_count": 25,
+    "successful_payment_count": 23,
+    "successful_refund_count": 12,
+    "gross_paid": "843.54",
+    "refunded": "86.80",
+    "net_received": "756.74"
+  }
+}

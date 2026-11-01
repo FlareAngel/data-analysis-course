@@ -1,0 +1,6 @@
+{
+  "description": "正确处理闭区间阈值",
+  "task_statement": "数据文件：data.csv。统计数值measurement处于闭区间[10,20]的记录数；缺失值不计。输出整数。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_OUTLIER_BOUNDARY",
+  "answer": 3
+}

@@ -1,0 +1,6 @@
+{
+  "description": "计算2023年东北区有效交易的带符号金额总和",
+  "task_statement": "data.csv 中 amount_text 是字符串：逗号为千位分隔符，圆括号表示负数，前导“+”表示正数，“—”表示缺失（不参与求和），字符串“0.00”是有效的零值。is_posted 为字符型 '1' 或 '0'。region 由 N/S（北/南）和 E/W（东/西）两个方向字母组成；CN=中部。仅取2023年、东北、is_posted='1'、kind='销售'的记录，将 amount_text 逐条按规则转为十进制数后求和；缺失跳过。结果保留两位小数，输出 JSON {\"answer\": 数值}。",
+  "hypothesized_failure_mode": "FM_DATA_TYPE",
+  "answer": 20248.02
+}

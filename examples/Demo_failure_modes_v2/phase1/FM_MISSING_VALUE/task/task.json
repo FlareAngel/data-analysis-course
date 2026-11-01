@@ -1,0 +1,6 @@
+{
+  "description": "统计2023年东北区最新有效风控分数达到50的账户数",
+  "task_statement": "data.csv 是账户风控评分历史，同一个 account_id 可有多条更新。region 是账户记录对应地区（N/S=北/南，E/W=东/西，CN=中部）。只处理2023年、东北地区、source=AUTO 的记录。score_text 中空字符串、只含空格、NULL、N/A（均不区分前后空白）表示缺失，必须丢弃；'0'、'0.00'、负数是有效数值。**先排除缺失评分**，然后对每个账户按 observed_at 最新、record_id 字典序最大打破并列，取得其最新有效分数。计算分数>=50的独立账户数。输出 JSON {\"answer\": 整数}。",
+  "hypothesized_failure_mode": "FM_MISSING_VALUE",
+  "answer": 5
+}

@@ -1,0 +1,6 @@
+{
+  "description": "按最新版本去重",
+  "task_statement": "数据文件：data.csv。每个customer_id只保留updated_at时间最新的记录；若时间相同保留record_id字母序最大的记录。统计保留记录中status=active的客户数。输出整数。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_DUPLICATE_RECORD_HANDLING",
+  "answer": 2
+}

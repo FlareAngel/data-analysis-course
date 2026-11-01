@@ -1,0 +1,38 @@
+{
+  "description": "逐票核验东北区已入账发票明细平衡性并返回通过失败清单",
+  "task_statement": "data.csv 混有 HEADER 和 LINE 两种行，invoice_id 是发票关联键，row_id 只识别具体行。HEADER 中 invoice_date、region、state、declared_total 有效；LINE 中 line_amount 有效，其他列不能当作发票头过滤依据。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 只选 HEADER 中日期2023年、东北、state=POSTED 的发票；对每张候选发票，收集全表其 invoice_id 的全部 LINE。必须至少有1条 LINE 且 LINE 金额 Decimal 合计严格等于 declared_total 才算平衡通过；否则不通过（包括完全没有明细的发票）。忽略孤儿 LINE（无合格 HEADER），不把它们计入候选。分别输出通过与失败发票的 ID 清单。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"balanced_ids\":[字符串,...],\"failed_ids\":[字符串,...],\"balanced_count\":整数,\"failed_count\":整数}；两个数组均按 invoice_id 字典序升序、无重复，且不交叉；计数必须分别等于数组长度，不能只输出通过数量。",
+  "hypothesized_failure_mode": "FM_VERIFICATION",
+  "answer": {
+    "balanced_ids": [
+      "INV0005",
+      "INV0011",
+      "INV0013",
+      "INV0015",
+      "INV0026",
+      "INV0034",
+      "INV0044",
+      "INV0055",
+      "INV0056",
+      "INV0078",
+      "INV0087",
+      "INV0095",
+      "INV0100",
+      "INV0107"
+    ],
+    "failed_ids": [
+      "INV0006",
+      "INV0042",
+      "INV0048",
+      "INV0063",
+      "INV0066",
+      "INV0067",
+      "INV0070",
+      "INV0096",
+      "INV0098",
+      "INV0103",
+      "INV_ORPHAN"
+    ],
+    "balanced_count": 14,
+    "failed_count": 11
+  }
+}

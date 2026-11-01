@@ -1,0 +1,8 @@
+﻿record_type,order_id,amount,payment_status
+order,o1,100,
+order,o2,200,
+order,o3,300,
+payment,o1,60,success
+payment,o1,40,success
+payment,o2,200,failed
+payment,o3,300,success

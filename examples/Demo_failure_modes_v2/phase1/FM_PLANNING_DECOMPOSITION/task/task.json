@@ -1,0 +1,6 @@
+{
+  "description": "按最新状态再评估2023年东北区高分有效会员人数",
+  "task_statement": "data.csv 为会员状态事件历史。region 按 N/S（北/南）、E/W（东/西）编码，CN=中部。首先在2023年、region=NE 的记录中按 account_id 分组，选择 event_time 最大的事件；同时间按 seq 数值最大、仍相同时按 event_id 字典序最大。**只在选出每个会员的最新事件以后**，判断其 state=ACTIVE、kyc=KYC_OK、score>=80，符合则计一个会员。不得先筛 ACTIVE 或高分再取最新，否则失效的旧状态会被错算。输出 JSON {\"answer\": 整数}。",
+  "hypothesized_failure_mode": "FM_PLANNING_DECOMPOSITION",
+  "answer": 3
+}

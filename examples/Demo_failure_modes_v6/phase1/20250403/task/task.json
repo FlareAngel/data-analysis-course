@@ -1,0 +1,9 @@
+{
+  "description": "计算东北区2024年2月以混合秒和毫秒时间戳登记的成功付款",
+  "task_statement": "event_epoch 是 Unix 时间戳，unit 为 s 或 sec 时以秒表示，为 ms 或 millis 时以毫秒表示；必须先按 unit 转成 UTC 时刻，再判断是否位于 2024-02-01 00:00:00（含）至 2024-03-01 00:00:00（不含）。NE、N-E 表示东北，PAID、P、DONE 表示成功付款，其余状态均不计；amount_yuan 是元，所有成功付款逐行求和。最终仅输出 {\"answer\":{\"payment_count\":整数,\"total_yuan\":\"两位小数字符串\"}}，不得附加说明。",
+  "hypothesized_failure_mode": "FM_DATA_TYPE",
+  "answer": {
+    "payment_count": 25,
+    "total_yuan": "2667.00"
+  }
+}

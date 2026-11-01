@@ -1,0 +1,100 @@
+[
+  {
+    "task_id": "20250001",
+    "incorrect_approach": "把 APP 排除在自营线上渠道之外",
+    "actual_answer": 2841.1,
+    "incorrect_answer": 996.81,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250002",
+    "incorrect_approach": "把多条订单明细误当多笔订单",
+    "actual_answer": 14,
+    "incorrect_answer": 16,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250003",
+    "incorrect_approach": "把圆括号负数误解析成正数",
+    "actual_answer": 20248.02,
+    "incorrect_answer": 30523.92,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250004",
+    "incorrect_approach": "忽略时间并列决胜规则",
+    "actual_answer": "I1129",
+    "incorrect_answer": "I1032",
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250005",
+    "incorrect_approach": "直接对所选订单所有支付流水求和",
+    "actual_answer": 1376.98,
+    "incorrect_answer": 2401.89,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250006",
+    "incorrect_approach": "逐行折扣率做算术平均",
+    "actual_answer": 1.49,
+    "incorrect_answer": 41.09,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250007",
+    "incorrect_approach": "误将 UTC 日期小时当纽约本地时间",
+    "actual_answer": 27,
+    "incorrect_answer": 1,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250008",
+    "incorrect_approach": "先取最新记录再剔除缺失评分",
+    "actual_answer": 5,
+    "incorrect_answer": 4,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250009",
+    "incorrect_approach": "错误地把双端包含写成严格不等号",
+    "actual_answer": 24,
+    "incorrect_answer": 17,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250010",
+    "incorrect_approach": "先筛签收事件再去重",
+    "actual_answer": 11,
+    "incorrect_answer": 17,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250011",
+    "incorrect_approach": "先筛 ACTIVE 和高分再保留账户最新事件",
+    "actual_answer": 3,
+    "incorrect_answer": 7,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250012",
+    "incorrect_approach": "只检查有效发票头却不核对明细加总",
+    "actual_answer": 14,
+    "incorrect_answer": 25,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250013",
+    "incorrect_approach": "先合并税额最后才舍入",
+    "actual_answer": 127.55,
+    "incorrect_answer": 127.51,
+    "distinguishable": true
+  },
+  {
+    "task_id": "20250014",
+    "incorrect_approach": "把客服留言出现的“东北”当成区域结构化编码",
+    "actual_answer": 3243.68,
+    "incorrect_answer": 4944.88,
+    "distinguishable": true
+  }
+]

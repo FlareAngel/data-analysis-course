@@ -1,0 +1,14 @@
+{
+  "description": "按先选最新再判条件的顺序确认东北区高分会员并输出结构化名单",
+  "task_statement": "data.csv保存会员状态事件历史，同一account_id可能在不同event_time更新账户状态；geo_ref的A1、A2、NE-A、NE-B均指东北，B1/B2、C1/C2、D1/D2、E1/E2分别指西北、东南、西南、中部，geo_adjust的NONE或STAY表示方向不变，FLIP_EW或SWAP_EW表示东西对调，FLIP_NS或SWAP_NS表示南北对调，以校正后地区为准；record_class的L1/L2有效、T1/Q1无效，但override_code为FORCE_KEEP或KEEP时强制保留，为FORCE_DROP或DROP时强制排除，为NONE或AUTO时才按record_class决定，覆盖规则优先；state_code中的Z15A/Z15B/ACTIVE/ENABLED都表示正常ACTIVE、Z16A/Z16B表示暂停SUSPENDED、Z07A/Z07B表示注销CANCELLED；kyc_code中的V11/V12/VERIFIED/KYC_PASS均表示已认证KYC_OK，V21/V22/PENDING_REVIEW/KYC_WAIT均表示待认证；seq_encoded可写作s10、seq:10或rev10，提取其中表示序号的整数后比较；score_unit为POINT或PT时score直接是分数，为CENTIPOINT或CPT时score须除以100恢复实际分数；先在event_time属于2023年且地区为东北的记录中按account_id选择最新事件，以event_time较晚者优先，时间相同依次比较seq_encoded整数值和event_id字典序较大者，选定最新事件后才判断该会员是否同时处于ACTIVE、KYC_OK且分数大于或等于80，不得先按状态、认证或评分筛掉旧事件，统计选到最新事件的会员总数并列出满足条件的会员ID；仅输出合法JSON，顶层仅有answer，其值为只含latest_account_count、qualified_count、qualified_ids三个键的对象，前两项是JSON整数，qualified_ids是不重复且按account_id字典序升序排列的字符串数组，不得增加字段或文字。",
+  "hypothesized_failure_mode": "FM_PLANNING_DECOMPOSITION",
+  "answer": {
+    "latest_account_count": 54,
+    "qualified_count": 3,
+    "qualified_ids": [
+      "USER006",
+      "USER115",
+      "USERX"
+    ]
+  }
+}

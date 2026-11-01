@@ -1,0 +1,6 @@
+﻿order_id,line_id,status
+o1,1,paid
+o1,2,paid
+o2,1,paid
+o3,1,cancelled
+o4,1,paid

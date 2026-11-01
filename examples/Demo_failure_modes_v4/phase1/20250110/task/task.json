@@ -1,0 +1,22 @@
+{
+  "description": "按入库快照去重后列出东北区有效签收订单和剩余事件数",
+  "task_statement": "data.csv 一行是 event_id 的一个入库快照，不一定是独立事件。先对**全 CSV**按 event_id 去重，保留 received_at 最大的一行；若同时间按 version 的整数值最大（不是字符串最大），还相同按 raw_id 字典序最大。完成后才筛选 event_date 在2023年、region 对应东北、state=DELIVERED 的事件。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 某个 order_id 可对应多个不同 event_id，输出签收订单列表时按 order_id 再去重，按字典序升序。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"delivered_order_ids\":[字符串,...],\"distinct_order_count\":整数,\"retained_event_count\":整数}；retained_event_count 是**去重之后、业务筛选之后**的 event_id 数量，distinct_order_count 是订单去重数量；数组字典序升序。",
+  "hypothesized_failure_mode": "FM_DUPLICATE_RECORD_HANDLING",
+  "answer": {
+    "delivered_order_ids": [
+      "OD009",
+      "OD017",
+      "OD018",
+      "OD028",
+      "OD047",
+      "OD048",
+      "OD051",
+      "OD055",
+      "OD063",
+      "OD071",
+      "OD999"
+    ],
+    "distinct_order_count": 11,
+    "retained_event_count": 20
+  }
+}

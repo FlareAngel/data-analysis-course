@@ -1,0 +1,13 @@
+{
+  "description": "统计东北区在纽约夏令时回拨重叠小时内的支付事件并区分第一次和第二次",
+  "task_statement": "data.csv 的 event_time 是带 Z 或明确 UTC 偏移的 ISO8601 时间。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 按 region 对应东北、event_type=PAYMENT_CAPTURED、channel∈{WEB,APP} 筛选后，把所有事件转换到 America/New_York 时区。只统计当地日期 2024-11-03、当地钟面时间 01:00:00（含）至02:00:00（不含）的事件。该日纽约 01 点发生两次：首次为 UTC-04:00 (fold=0)，第二次为 UTC-05:00 (fold=1)，必须分别统计两段，不可直接用 UTC 小时或只算一次 01 点。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"timezone\":\"America/New_York\",\"local_date\":\"2024-11-03\",\"hour\":\"01:00\",\"first_occurrence\":整数,\"second_occurrence\":整数,\"total\":整数}；日期和小时必须为 JSON 字符串、计数为 JSON 整数，total 等于前两项之和。",
+  "hypothesized_failure_mode": "FM_TIME_TIMEZONE",
+  "answer": {
+    "timezone": "America/New_York",
+    "local_date": "2024-11-03",
+    "hour": "01:00",
+    "first_occurrence": 16,
+    "second_occurrence": 11,
+    "total": 27
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "description": "核算东北区五月实际成功付款及截至五月末已入账退款后的净收款",
+  "task_statement": "CSV 的 entity_type 为 ORDER 表示订单记录，为 PAYMENT、PAY、CAPTURE 表示支付记录，为 REFUND、REVERSAL 表示退款记录，支付通过 order_id 关联订单，退款必须通过 parent_payment_id 对应支付的 entity_id，不能把同一订单所有退款无差别相加；region 的 NE 和 N-E 表示东北。只选择 event_at 在 2024-05-01 00:00:00 UTC（含）到 2024-06-01 00:00:00 UTC（不含）的成功支付（state=OK），从这些支付减去关联且同样在五月内入账（state=POSTED）的退款，六月入账的退款不扣；同一支付可能多笔退款，均应扣除。严格输出 {\"answer\":{\"paid_count\":整数,\"net_receipts\":\"两位小数金额字符串\"}}。",
+  "hypothesized_failure_mode": "FM_JOIN",
+  "answer": {
+    "paid_count": 41,
+    "net_receipts": "5260.00"
+  }
+}

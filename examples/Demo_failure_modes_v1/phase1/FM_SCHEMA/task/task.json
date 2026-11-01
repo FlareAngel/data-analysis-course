@@ -1,0 +1,6 @@
+{
+  "description": "识别订单明细粒度",
+  "task_statement": "数据文件：data.csv。每行是一个订单商品明细，order_id可重复。计算已支付的唯一订单数，不是明细行数。输出整数。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_SCHEMA",
+  "answer": 3
+}

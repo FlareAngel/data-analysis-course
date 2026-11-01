@@ -1,0 +1,10 @@
+{
+  "description": "按加权口径汇总东北区线上销售整体折扣率与分母分子",
+  "task_statement": "data.csv 每行一个商品销售明细。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 只取2023年东北地区、channel 为 WEB 或 APP、state=PAID 的行。每行原价小计=qty×unit_list_price；折扣额为 discount_amount，折扣可能为零。整体折扣率应为 100×(合格行折扣金额合计)/(合格行原价小计合计)，而不是逐行折扣率的算术平均、或按订单先行等权平均。按 Decimal 精确求出合计及比率，最终百分比四舍五入 ROUND_HALF_UP 到2位小数。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"basis_amount\":\"两位小数的字符串\",\"discount_amount\":\"两位小数的字符串\",\"discount_rate_pct\":数字}；最后一个值必须是 JSON 数字，单位是百分数（如 1.49 而非 0.0149），而前两个必须是金额字符串。",
+  "hypothesized_failure_mode": "FM_AGGREGATION",
+  "answer": {
+    "basis_amount": "1530005.00",
+    "discount_amount": "22752.00",
+    "discount_rate_pct": 1.49
+  }
+}

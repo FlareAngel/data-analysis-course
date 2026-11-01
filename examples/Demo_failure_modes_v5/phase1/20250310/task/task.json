@@ -1,0 +1,21 @@
+{
+  "description": "按入库快照去重后列出东北区有效签收订单和剩余事件数",
+  "task_statement": "data.csv每行是一条配送事件的入库快照，同一event_id允许出现不同版本，order_id是订单标识；geo_ref的A1、A2、NE-A、NE-B均指东北，B1/B2、C1/C2、D1/D2、E1/E2分别指西北、东南、西南、中部，geo_adjust的NONE或STAY表示方向不变，FLIP_EW或SWAP_EW表示东西对调，FLIP_NS或SWAP_NS表示南北对调，以校正后地区为准；record_class的L1/L2有效、T1/Q1无效，但override_code为FORCE_KEEP或KEEP时强制保留，为FORCE_DROP或DROP时强制排除，为NONE或AUTO时才按record_class决定，覆盖规则优先；state_code中的Z12A/Z12B/DELIVERED/SIGNED都表示已签收DELIVERED，Z07A/Z07B、Z13A/Z13B、Z14A/Z14B分别表示CANCELLED、IN_TRANSIT、RETURNED；version_encoded可以写成v10、ver:10或rev10一类格式，去掉v、ver:或rev前缀后按整数比较而不是字符串比较；先在整个CSV中按event_id保留received_at最晚的快照，若接收时间相同则保留version_encoded整数版本最大的行，仍相同再取raw_id字典序最大的行，完成去重后才筛选event_date在2023年、地区为东北且状态为DELIVERED的事件，分别统计满足条件的不同event_id数量和不同order_id数量，并按order_id字典序列出无重复签收订单；仅输出合法JSON，顶层仅有answer，其值为只含delivered_order_ids、distinct_order_count、retained_event_count三个键的对象，第一项为字符串ID升序数组，后两项分别为签收订单去重数和筛选后事件去重数的JSON整数，不得增加字段或文字。",
+  "hypothesized_failure_mode": "FM_DUPLICATE_RECORD_HANDLING",
+  "answer": {
+    "delivered_order_ids": [
+      "OD009",
+      "OD017",
+      "OD018",
+      "OD026",
+      "OD027",
+      "OD028",
+      "OD063",
+      "OD065",
+      "OD071",
+      "OD999"
+    ],
+    "distinct_order_count": 10,
+    "retained_event_count": 19
+  }
+}

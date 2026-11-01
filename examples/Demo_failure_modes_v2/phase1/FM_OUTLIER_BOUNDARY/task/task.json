@@ -1,0 +1,6 @@
+{
+  "description": "计算2023年东北区线上成功交易中落在闭区间[20,200]的笔数",
+  "task_statement": "每行一笔不同交易。region 由 N/S（北/南）与 E/W（东/西）组合，CN=中部；线上 channel 是 WEB 和 APP；交易成功 state=SUCCESS。筛选2023年东北区线上成功交易后，仅计算 amount 数值在闭区间 [20.00,200.00] 内（**两端都包含**）的交易数量。低于20、高于200、负值和极大值都应排除，但不要删除或缩尾后重新计算阈值。金额按十进制比较，输出 JSON {\"answer\": 整数}。",
+  "hypothesized_failure_mode": "FM_OUTLIER_BOUNDARY",
+  "answer": 24
+}

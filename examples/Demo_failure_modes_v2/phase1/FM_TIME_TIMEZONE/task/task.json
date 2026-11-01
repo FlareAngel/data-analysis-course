@@ -1,0 +1,6 @@
+{
+  "description": "统计美国东北区夏令时结束当天凌晨01:00–02:00的成功支付事件数",
+  "task_statement": "event_time 是带 UTC 标记 Z 或时区偏移的 ISO 8601 时间戳；所有时间必须先转为 America/New_York 本地时间。地区编码由 N/S（北/南）和 E/W（东/西）组合，CN=中部，东北对应 NE。筛选 event_type=PAYMENT_CAPTURED 且 channel 属于 WEB/APP 的东北区事件。只统计当地日期 2024-11-03，当地墙上时钟时间 [01:00:00,02:00:00) 的事件；在 DST 回拨日，01:00–01:59 出现两次，两次都必须计入。输出 JSON {\"answer\": 整数}。",
+  "hypothesized_failure_mode": "FM_TIME_TIMEZONE",
+  "answer": 27
+}

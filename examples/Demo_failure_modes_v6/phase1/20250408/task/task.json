@@ -1,0 +1,26 @@
+{
+  "description": "按八月底快照求东北客户最近一次非缺失评分并统计达标人数",
+  "task_statement": "每个 account_id 可以在不同 observed_at 时间产生多次评分，取 2024-09-01 00:00:00 UTC（不含该时刻）之前且 region 为 NE 或 N-E 的记录；score_text 的 NA、N/A、null、NULL、--、空字符串、仅含空格都表示缺失，0、0.00 和负数则是有效评分。先剔除缺失评分，再按每个账户最近的 observed_at 选最新有效记录，同一时刻按 revision 数字最大的记录，最后统计最新有效评分大于或等于 50 的客户；还需单独统计快照时刻之前东北记录里缺失评分的行数。输出 {\"answer\":{\"qualified_accounts\":[按字典序升序排列的账户ID],\"qualified_count\":整数,\"missing_rows\":整数}}。",
+  "hypothesized_failure_mode": "FM_MISSING_VALUE",
+  "answer": {
+    "qualified_accounts": [
+      "A006",
+      "A012",
+      "A015",
+      "A019",
+      "A024",
+      "A028",
+      "A030",
+      "A033",
+      "A043",
+      "A053",
+      "A060",
+      "A070",
+      "A079",
+      "A090",
+      "EDGE_SCORE"
+    ],
+    "qualified_count": 15,
+    "missing_rows": 77
+  }
+}

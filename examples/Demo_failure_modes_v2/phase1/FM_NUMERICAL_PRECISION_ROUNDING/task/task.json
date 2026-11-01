@@ -1,0 +1,6 @@
+{
+  "description": "计算2023年东北区已入账税款逐行四舍五入后的总额",
+  "task_statement": "每行是一条应税明细。region 采用 N/S（北/南）+E/W（东/西）编码，CN=中部。筛选2023年、东北区、state=POSTED 的记录。每行税额=taxable_amount×tax_rate；**逐行**使用十进制 ROUND_HALF_UP 舍入到两位小数，然后将所有逐行已舍入税额精确求和。不能先汇总再舍入、不能用 Python float 默认 round（银行家舍入）。最终金额保留两位小数，输出 JSON {\"answer\": 数值}。",
+  "hypothesized_failure_mode": "FM_NUMERICAL_PRECISION_ROUNDING",
+  "answer": 127.55
+}

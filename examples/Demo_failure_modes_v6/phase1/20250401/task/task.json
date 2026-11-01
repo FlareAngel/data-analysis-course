@@ -1,0 +1,9 @@
+{
+  "description": "核算东北区2024年第一季度按业务确认时间归属的线上已结算订单金额",
+  "task_statement": "数据中 created_at 是订单创建时间，confirmed_at 是业务确认时间，季度归属一律取 confirmed_at 而不是 created_at；本题所有带时区偏移的时间先转换为 UTC，再判断是否落在 2024-01-01 00:00:00（含）至 2024-04-01 00:00:00（不含）。region 的 NE、N-E 均指东北，C、SETTLED、OK 均指已结算，APP、WEB、online 均指线上；只汇总同时满足这些条件的订单 amount，负金额按原值计入。仅输出合法 JSON：顶层只能有 answer，其值只能含 order_count（整数）和 total_amount（保留两位小数的字符串），不得输出说明文字。",
+  "hypothesized_failure_mode": "FM_REQUIREMENT",
+  "answer": {
+    "order_count": 29,
+    "total_amount": "10597.00"
+  }
+}

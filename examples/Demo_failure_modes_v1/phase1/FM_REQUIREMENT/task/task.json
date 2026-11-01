@@ -1,0 +1,6 @@
+{
+  "description": "识别净收入而非销售额",
+  "task_statement": "数据文件：data.csv。计算所有已完成订单的净收入总额：净收入=商品金额-优惠金额-退款金额；取消订单不计入。输出数值，单位元。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_REQUIREMENT",
+  "answer": 240.0
+}

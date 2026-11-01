@@ -1,0 +1,41 @@
+{
+  "description": "按九月底已接收版本恢复东北区订单的唯一最终状态",
+  "task_statement": "CSV 的 record_id 是订单唯一键，每条记录是它的一版快照，version 可写作 v7、rev7、ver:7 等，这三种写法都代表整数版本 7；updated_at 是业务更新时间，ingested_at 是该版本进入报表系统的时间。报表截止时点为 2024-10-01 00:00:00 UTC（不含），只允许使用 ingested_at 早于截止时点的版本，然后每个 record_id 保留版本号最大的记录（版本相同时取 updated_at 最晚的一行）；NE、N-E 为东北，DONE、COMPLETE 表示完成。去重必须先于状态筛选，截止后到达的新版本不能更改九月底快照，输出 {\"answer\":{\"completed_ids\":[按字典序升序排列的字符串],\"completed_count\":整数,\"completed_amount\":\"两位小数字符串\"}}。",
+  "hypothesized_failure_mode": "FM_DUPLICATE_RECORD_HANDLING",
+  "answer": {
+    "completed_ids": [
+      "EDGE_REV",
+      "R002",
+      "R007",
+      "R009",
+      "R011",
+      "R022",
+      "R023",
+      "R024",
+      "R025",
+      "R032",
+      "R033",
+      "R038",
+      "R039",
+      "R044",
+      "R047",
+      "R055",
+      "R057",
+      "R058",
+      "R059",
+      "R062",
+      "R066",
+      "R079",
+      "R080",
+      "R081",
+      "R083",
+      "R084",
+      "R090",
+      "R092",
+      "R093",
+      "R094"
+    ],
+    "completed_count": 30,
+    "completed_amount": "4250.00"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "description": "计算2023年东北区自营线上已结算订单净收入",
+  "task_statement": "data.csv 每行是一笔不同的订单，包含 order_id、order_date、region、channel、status、gross_amount、refund_amount、memo。地区编码是两个英文方位首字母的组合（N/S=北/南，E/W=东/西），CN=中部。自营线上只包含 WEB（官网）和 APP（应用），PARTNER（第三方平台）和 STORE（门店）都不属于自营线上。已结算状态编码为 SETTLED。统计2023-01-01（含）至2024-01-01（不含）的东北区订单，分别对每笔符合条件的订单计算 gross_amount-refund_amount，然后汇总。金额按十进制精确计算，结果保留两位小数。仅输出 JSON 对象 {\"answer\": 数值}。",
+  "hypothesized_failure_mode": "FM_REQUIREMENT",
+  "answer": 2841.1
+}

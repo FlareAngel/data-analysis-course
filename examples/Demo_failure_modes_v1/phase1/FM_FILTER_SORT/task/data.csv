@@ -1,0 +1,6 @@
+﻿id,region,status,score
+b,East,active,91
+a,East,active,91
+c,West,active,100
+d,East,inactive,99
+e,East,active,85
