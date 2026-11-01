@@ -28,7 +28,9 @@ BigData 课程系统包含学生侧和助教侧，两侧通过课程提交包和
 
 助教端支持学生提交包批量导入与校验、课程任务库和智能体库建立、身份匿名化、匿名任务分配、匿名任务包生成与发放、第二阶段提交整理、统一后台评测和课程结果统计。助教端可用于组织第一阶段任务与智能体设计、匿名任务发放以及最终统一评测的完整课程流程。
 
-当前测试版本为 `v10.1.13`。系统通过本地 Docker 环境运行，学生端和助教端使用统一的课程命令和验证规则；学生提交前执行的本地验证与助教收包后的复验采用同一套检查规则。
+当前正式版本为 v10.1.19。系统通过本地 Docker 环境运行，学生端和助教端使用统一的课程命令和验证规则；学生提交前执行的本地验证与助教收包后的复验采用同一套检查规则。
+
+**注意：** `Task`、`Agent`、`Exposure` 运行记录及最终提交包均保存在 `/workspace` 下，容器删除或重建后，这些文件仍保留在 Windows 对应目录中，除非主动删除或覆盖。
 
 课程主要分为两个正式阶段，中间安排一次匿名任务测试。
 
@@ -69,13 +71,15 @@ BigData 课程系统包含学生侧和助教侧，两侧通过课程提交包和
 学生在本地完成运行测试后，使用课程命令生成提交包，并对最终提交包进行验证。
 
 ```bash
-bin/datac submission build   --input /workspace   --student-id <student-id>   --phase P1
+bin/datac build --phase P1 --student-id <学号>
 ```
 
 然后执行：
 
 ```bash
-bin/datac submission validate   --input /workspace/submission/BigData_P1_<student-id>.zip   --phase P1
+bin/datac submission validate \
+  --input /workspace/store/packages/bigdata_p1_<学号>.tar.gz \
+  --phase P1
 ```
 
 学生本地验证和助教收包后的验证使用同一套课程规则。学生在本地看到的验证结果，就是助教收到同一个提交包以后会重新检查的内容。
@@ -83,26 +87,49 @@ bin/datac submission validate   --input /workspace/submission/BigData_P1_<studen
 最终提交文件为：
 
 ```text
-BigData_P1_<student-id>.zip
+/workspace/store/packages/bigdata_p1_<学号>.tar.gz
 ```
 
+总包包含：
 
+```
+Tasks_<学号>.tar.gz
+Agent_<学号>.tar.gz
+metadata.json
+```
 
 ## 匿名任务测试
 
 第一阶段收齐后，助教端统一整理任务，并为每名学生分配 10 道匿名任务。
 
+收到助教发放的包，发放的包路径必须是容器内路径：/workspace/BigData_Exposure_R000001.tar.gz
+
 学生收到匿名任务包后执行：
 
 ```bash
-bin/datac exposure import   --package /workspace/BigData_Exposure_<reviewer-id>.tar.gz   --workspace /workspace
+bin/datac exposure import \
+  --package <发放的包路径> \
+  --workspace /workspace
 ```
 
 然后使用自己的智能体第一版运行：
 
+运行 Exposure（全量）
+
 ```bash
-bin/datac exposure run   --workspace /workspace
+bin/datac exposure run --workspace /workspace
 ```
+
+运行 Exposure（单题）
+
+```
+bin/datac exposure run \
+  --workspace /workspace \
+  --task AT005 \
+  --force
+```
+
+`AT005` 仅为示例，实际应使用已分配的任务编号。
 
 学生通过这些结果判断自己的智能体在哪些任务上能够正常工作，在哪些任务上会失败，以及失败发生在问题理解、数据读取、筛选、关联、统计、时间处理、结果检查或资源使用等哪个环节。
 
@@ -125,32 +152,42 @@ bin/datac exposure run   --workspace /workspace
 完成后，学生生成第二阶段提交包：
 
 ```bash
-bin/datac submission build   --input /workspace   --student-id <student-id>   --phase P2
+bin/datac build --phase P2 --student-id <学号>
 ```
 
 并在正式提交前再次验证：
 
 ```bash
-bin/datac submission validate   --input /workspace/submission/BigData_P2_<student-id>.zip   --phase P2
+bin/datac submission validate \
+  --input /workspace/store/packages/bigdata_p2_<学号>.tar.gz \
+  --phase P2
 ```
 
 最终提交文件为：
 
 ```text
-BigData_P2_<student-id>.zip
+/workspace/store/packages/bigdata_p2_<学号>.tar.gz
 ```
 
+总包包含：
 
+```
+Tasks_<学号>.tar.gz
+Agent_<学号>.tar.gz
+metadata.json
+review-comments.json
+实验报告.docx
+```
 
 ## 安装与使用文档
 
+具体关于数据分析相关限制条件，请阅读 [大数据分析技术课程项目.md](docs/大数据分析技术课程项目.md)。
 
-
-更详细的环境准备、Docker 安装、学生端部署步骤，请阅读 [学生手册](docs/学生手册.md)。
+更详细的环境准备、Docker 安装、学生端部署步骤，请阅读 [学生手册](docs/手册.pdf)。
 
 更详细的课程说明、系统操作、提交作业，请阅读 [DUT-2026大数据分析技术-课程使用](docs/DUT-2026大数据分析技术-课程使用.pdf)。
 
-更具体的正式评测与最终成绩说明，请阅读 [学生手册精简版](docs/学生手册精简版.md) 正文 或者  [学生手册](docs/学生手册.md)附录 。
+更具体的课程操作指令说明，请阅读 [课程系统指令说明](docs/课程系统指令说明.pdf) 正文  。
 
 
 
