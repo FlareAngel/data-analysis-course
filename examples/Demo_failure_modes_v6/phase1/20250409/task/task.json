@@ -1,0 +1,11 @@
+{
+  "description": "统计东北区闰日记账金额的无效边界、录入异常和有效金额",
+  "task_statement": "posted_at 为 UTC 实际入账时间，闰日范围严格是 2024-02-29 00:00:00（含）至 2024-03-01 00:00:00（不含）；NE、N-E 为东北，状态 Y、OK 表示入账成功。成功记录中的 amount_yuan 小于或等于 0 定义为无效边界值，大于 5000 定义为录入异常值，两类互斥且不计入有效金额；大于 0 且小于或等于 5000 的金额均有效，恰好为 5000 必须保留。输出唯一 JSON 对象 {\"answer\":{\"invalid_count\":整数,\"abnormal_count\":整数,\"valid_count\":整数,\"valid_amount\":\"保留两位小数的字符串\"}}。",
+  "hypothesized_failure_mode": "FM_OUTLIER_BOUNDARY",
+  "answer": {
+    "invalid_count": 5,
+    "abnormal_count": 3,
+    "valid_count": 19,
+    "valid_amount": "26749.99"
+  }
+}

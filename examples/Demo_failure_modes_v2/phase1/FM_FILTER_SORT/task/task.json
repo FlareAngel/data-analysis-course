@@ -1,0 +1,6 @@
+{
+  "description": "找出2023年东北区已支付自营线上订单按金额排序的第7笔订单号",
+  "task_statement": "每行一笔订单。地区代码由 N/S（北/南）与 E/W（东/西）组成，CN 为中部。自营线上渠道为 WEB 和 APP；有效支付状态为 PAID。筛选2023年东北区已支付自营线上订单。排序要求：先按 amount 十进制数值降序；金额相同按 created_at 字符串表示的本地时间升序；仍相同按 invoice_id 字典序升序（字段格式一致）。返回排序后第7行的 invoice_id，不去重金额。输出 JSON {\"answer\": \"订单号\"}。",
+  "hypothesized_failure_mode": "FM_FILTER_SORT",
+  "answer": "I1129"
+}

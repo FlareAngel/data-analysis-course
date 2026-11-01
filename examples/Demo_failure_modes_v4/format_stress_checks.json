@@ -1,0 +1,114 @@
+[
+  {
+    "task_id": "20250101",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250102",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250103",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250104",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250105",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250106",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250107",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250108",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250109",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250110",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250111",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250112",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250113",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  },
+  {
+    "task_id": "20250114",
+    "valid_reference": "PASS",
+    "mutated_type": "REJECTED",
+    "missing_key": "REJECTED",
+    "extra_key": "REJECTED",
+    "csv_has_no_chinese_northeast": true
+  }
+]

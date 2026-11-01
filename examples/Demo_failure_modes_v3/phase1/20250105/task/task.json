@@ -1,0 +1,13 @@
+{
+  "description": "核对东北区结算订单关联支付退款并返回字符串货币对账表",
+  "task_statement": "data.csv 的 row_type 分为 ORDER（订单）、PAYMENT（支付）和 REFUND（退款），各自数据粒度不同。ORDER 的 order_id 是订单主键；PAYMENT 的 payment_id 是支付主键，order_id 指向订单；REFUND 必须通过 parent_payment_id 找到对应支付（REFUND 自带 order_id 不是可信关联依据）。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 只选 ORDER 中 2023 年东北、state=SETTLED 的订单；再只纳入属于这些订单且 state=SUCCESS 的 PAYMENT；最后只纳入 state=SUCCESS 且 parent_payment_id 对应已纳入 PAYMENT 的 REFUND。净收入=成功支付总额−成功退款总额。返回各类数量和金额，不可把一笔支付因多次退款的关联而重复求和。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"settled_order_count\":整数,\"successful_payment_count\":整数,\"successful_refund_count\":整数,\"gross_paid\":\"0.00格式字符串\",\"refunded\":\"0.00格式字符串\",\"net_received\":\"0.00格式字符串\"}；金额全是恰好两位小数的字符串，计数全是 JSON 整数。",
+  "hypothesized_failure_mode": "FM_JOIN",
+  "answer": {
+    "settled_order_count": 34,
+    "successful_payment_count": 52,
+    "successful_refund_count": 32,
+    "gross_paid": "1628.36",
+    "refunded": "251.38",
+    "net_received": "1376.98"
+  }
+}

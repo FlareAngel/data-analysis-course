@@ -1,0 +1,14 @@
+{
+  "description": "按先选最新再判条件的顺序确认东北区高分会员并输出结构化名单",
+  "task_statement": "data.csv 为会员状态事件历史。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 在 event_time 对应2023年、region 对应东北 的记录中，先按 account_id 取最新事件，排序依据为 event_time 最大，若同时间 seq **按整数**最大，仍相同 event_id 字典序最大。随后才判断最新记录同时满足 state=ACTIVE、kyc=KYC_OK、score 的整数值≥80。不得预先过滤 ACTIVE、KYC 或 score，否则会把已经停用的账户算进去。返回最新事件数、符合条件的会员数与对应 ID。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"latest_account_count\":整数,\"qualified_count\":整数,\"qualified_ids\":[字符串,...]}；qualified_ids 无重复且按 account_id 字典序升序；计数全为 JSON 整数，不可把数组编码成 JSON 字符串。",
+  "hypothesized_failure_mode": "FM_PLANNING_DECOMPOSITION",
+  "answer": {
+    "latest_account_count": 57,
+    "qualified_count": 3,
+    "qualified_ids": [
+      "USER006",
+      "USER108",
+      "USER115"
+    ]
+  }
+}

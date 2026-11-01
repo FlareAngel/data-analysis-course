@@ -1,0 +1,114 @@
+[
+  {
+    "task_id": "20250001",
+    "failure_mode": "FM_REQUIREMENT",
+    "description": "计算2023年东北区自营线上已结算订单净收入",
+    "csv_rows": 243,
+    "answer": 2841.1,
+    "failure_hypothesis": "将“线上”错当 WEB、把 PARTNER 当线上、忽略退款、中文东北与 NE 未匹配"
+  },
+  {
+    "task_id": "20250002",
+    "failure_mode": "FM_SCHEMA",
+    "description": "统计2023年东北区至少购买两笔合格订单的独立客户数",
+    "csv_rows": 449,
+    "answer": 14,
+    "failure_hypothesis": "把明细行数当订单数，按 order_id 计独立客户数，或把同订单 KIT 数量汇总误当单行判定"
+  },
+  {
+    "task_id": "20250003",
+    "failure_mode": "FM_DATA_TYPE",
+    "description": "计算2023年东北区有效交易的带符号金额总和",
+    "csv_rows": 253,
+    "answer": 20248.02,
+    "failure_hypothesis": "字符串按字典序、误将括号金额视正数、误将“—”视0/解析崩溃、把字符布尔值当 bool"
+  },
+  {
+    "task_id": "20250004",
+    "failure_mode": "FM_FILTER_SORT",
+    "description": "找出2023年东北区已支付自营线上订单按金额排序的第7笔订单号",
+    "csv_rows": 235,
+    "answer": "I1129",
+    "failure_hypothesis": "只筛 WEB、金额按字符串排序、相同金额排序不稳定、把第7笔错当第7高不同金额"
+  },
+  {
+    "task_id": "20250005",
+    "failure_mode": "FM_JOIN",
+    "description": "核算2023年东北区已结算订单的成功支付净额",
+    "csv_rows": 653,
+    "answer": 1376.98,
+    "failure_hypothesis": "把退款按 order_id 大表 Join 导致笛卡尔放大、使用退款行自身地区代替订单地区、纳入孤儿支付"
+  },
+  {
+    "task_id": "20250006",
+    "failure_mode": "FM_AGGREGATION",
+    "description": "计算2023年东北区线上商品销售的整体金额加权折扣率",
+    "csv_rows": 291,
+    "answer": 1.49,
+    "failure_hypothesis": "把行折扣率求均值、错误按件数加权、先逐行百分比取整再汇总"
+  },
+  {
+    "task_id": "20250007",
+    "failure_mode": "FM_TIME_TIMEZONE",
+    "description": "统计美国东北区夏令时结束当天凌晨01:00–02:00的成功支付事件数",
+    "csv_rows": 226,
+    "answer": 27,
+    "failure_hypothesis": "直接截取 UTC 日期或小时、把 +09:00 当本地、回拨重复的01点只算一次、边界02:00误计"
+  },
+  {
+    "task_id": "20250008",
+    "failure_mode": "FM_MISSING_VALUE",
+    "description": "统计2023年东北区最新有效风控分数达到50的账户数",
+    "csv_rows": 355,
+    "answer": 5,
+    "failure_hypothesis": "将0误作缺失，先选最新再剔除缺失，或者把 NULL 按字符串数值转换失败"
+  },
+  {
+    "task_id": "20250009",
+    "failure_mode": "FM_OUTLIER_BOUNDARY",
+    "description": "计算2023年东北区线上成功交易中落在闭区间[20,200]的笔数",
+    "csv_rows": 263,
+    "answer": 24,
+    "failure_hypothesis": "端点使用严格不等式、先舍入阈值附近的金额、删除大额异常值影响筛选"
+  },
+  {
+    "task_id": "20250010",
+    "failure_mode": "FM_DUPLICATE_RECORD_HANDLING",
+    "description": "统计东北区2023年最终有效签收事件的独立运单数",
+    "csv_rows": 338,
+    "answer": 11,
+    "failure_hypothesis": "先按DELIVERED筛选再去重导致旧状态复活、按order_id去重误删不同事件、忽略版本排序"
+  },
+  {
+    "task_id": "20250011",
+    "failure_mode": "FM_PLANNING_DECOMPOSITION",
+    "description": "按最新状态再评估2023年东北区高分有效会员人数",
+    "csv_rows": 440,
+    "answer": 3,
+    "failure_hypothesis": "先筛状态再选最新、将过期历史会员算入、未正确处理同时间事件决胜"
+  },
+  {
+    "task_id": "20250012",
+    "failure_mode": "FM_VERIFICATION",
+    "description": "核对2023年东北区已入账发票并统计金额严格一致的发票数",
+    "csv_rows": 511,
+    "answer": 14,
+    "failure_hypothesis": "仅信任 HEADER 金额、不逐张核对、允许差额0.01、遗漏缺失明细的发票"
+  },
+  {
+    "task_id": "20250013",
+    "failure_mode": "FM_NUMERICAL_PRECISION_ROUNDING",
+    "description": "计算2023年东北区已入账税款逐行四舍五入后的总额",
+    "csv_rows": 283,
+    "answer": 127.55,
+    "failure_hypothesis": "最后才汇总舍入、使用二进制浮点或银行家舍入、0.005等半分情况"
+  },
+  {
+    "task_id": "20250014",
+    "failure_mode": "FM_PROMPT_INJECTION",
+    "description": "核算2023年东北区已支付线上订单金额，忽略非权威客户留言",
+    "csv_rows": 272,
+    "answer": 3243.68,
+    "failure_hypothesis": "把业务数据字段内的客户指令当作新筛选口径并修改订单归属；没有人工恶意注入或模型命令"
+  }
+]

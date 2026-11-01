@@ -1,0 +1,318 @@
+[
+  {
+    "task_id": "20250101",
+    "fm": "FM_REQUIREMENT",
+    "rows": 243,
+    "answer": {
+      "region": "东北",
+      "channels": [
+        "APP",
+        "WEB"
+      ],
+      "order_count": 28,
+      "net_amount": "2841.10"
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "把金额写成浮点数，或把 PARTNER 也算自营线上",
+    "output_schema": "answer 必须是对象，恰有 {\"region\":\"东北\",\"channels\":[\"APP\",\"WEB\"],\"order_count\":整数,\"net_amount\":\"带两位小数的十进制字符串\"}；channels 必须按字母升序，金额即使尾数为零也必须保留两位，不允许 JSON 数字。"
+  },
+  {
+    "task_id": "20250102",
+    "fm": "FM_SCHEMA",
+    "rows": 449,
+    "answer": {
+      "qualified_customer_count": 14,
+      "customers": [
+        {
+          "customer_id": "C020",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C901",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C902",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C903",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C904",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C905",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C906",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C907",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C908",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C909",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C910",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C911",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C912",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C913",
+          "distinct_orders": 3
+        }
+      ]
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "误把订单明细行当订单，或返回客户名的逗号字符串",
+    "output_schema": "answer 必须是对象，恰有 {\"qualified_customer_count\":整数,\"customers\":[{\"customer_id\":字符串,\"distinct_orders\":整数},...]}；customers 只列入选客户，按 customer_id 字典序升序，数组元素对象恰有这两个键；数量必须是 JSON 整数，不能输出 \"14\" 这样的字符串。"
+  },
+  {
+    "task_id": "20250103",
+    "fm": "FM_DATA_TYPE",
+    "rows": 253,
+    "answer": {
+      "net_cents": 2024802,
+      "negative_row_count": 3,
+      "missing_row_count": 1
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "直接把括号负数当正数，或把分单位写成元浮点数",
+    "output_schema": "answer 必须是对象，恰有 {\"net_cents\":整数,\"negative_row_count\":整数,\"missing_row_count\":整数}，所有值都是 JSON 整数（包括负整数），不能出现货币符号、浮点数或引号包裹的数字。"
+  },
+  {
+    "task_id": "20250104",
+    "fm": "FM_FILTER_SORT",
+    "rows": 235,
+    "answer": {
+      "top7_invoice_ids": [
+        "I9001",
+        "I9002",
+        "I9003",
+        "I9004",
+        "I9005",
+        "I1171",
+        "I1129"
+      ],
+      "rank7": {
+        "invoice_id": "I1129",
+        "amount": "1800.00"
+      }
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "排序方向或并列次键错，或 JSON 数组顺序被重排",
+    "output_schema": "answer 必须是对象，恰有 {\"top7_invoice_ids\":[7个字符串],\"rank7\":{\"invoice_id\":字符串,\"amount\":\"恰好两位小数的金额字符串\"}}；数组必须严格按照名次顺序，不允许排序成 ID 顺序、JSON 集合或逗号分隔文本。rank7 与数组的第7项必须一致。"
+  },
+  {
+    "task_id": "20250105",
+    "fm": "FM_JOIN",
+    "rows": 653,
+    "answer": {
+      "settled_order_count": 34,
+      "successful_payment_count": 52,
+      "successful_refund_count": 32,
+      "gross_paid": "1628.36",
+      "refunded": "251.38",
+      "net_received": "1376.98"
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "错误以退款 order_id 做关联，或重复汇总一对多支付",
+    "output_schema": "answer 必须是对象，恰有 {\"settled_order_count\":整数,\"successful_payment_count\":整数,\"successful_refund_count\":整数,\"gross_paid\":\"0.00格式字符串\",\"refunded\":\"0.00格式字符串\",\"net_received\":\"0.00格式字符串\"}；金额全是恰好两位小数的字符串，计数全是 JSON 整数。"
+  },
+  {
+    "task_id": "20250106",
+    "fm": "FM_AGGREGATION",
+    "rows": 291,
+    "answer": {
+      "basis_amount": "1530005.00",
+      "discount_amount": "22752.00",
+      "discount_rate_pct": 1.49
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "错误用每行百分比求均值，或把折扣率返回为字符串",
+    "output_schema": "answer 必须是对象，恰有 {\"basis_amount\":\"两位小数的字符串\",\"discount_amount\":\"两位小数的字符串\",\"discount_rate_pct\":数字}；最后一个值必须是 JSON 数字，单位是百分数（如 1.49 而非 0.0149），而前两个必须是金额字符串。"
+  },
+  {
+    "task_id": "20250107",
+    "fm": "FM_TIME_TIMEZONE",
+    "rows": 226,
+    "answer": {
+      "timezone": "America/New_York",
+      "local_date": "2024-11-03",
+      "hour": "01:00",
+      "first_occurrence": 16,
+      "second_occurrence": 11,
+      "total": 27
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "把两个01点合并为一个，或把日期时间输出为 Unix 时间戳",
+    "output_schema": "answer 必须是对象，恰有 {\"timezone\":\"America/New_York\",\"local_date\":\"2024-11-03\",\"hour\":\"01:00\",\"first_occurrence\":整数,\"second_occurrence\":整数,\"total\":整数}；日期和小时必须为 JSON 字符串、计数为 JSON 整数，total 等于前两项之和。"
+  },
+  {
+    "task_id": "20250108",
+    "fm": "FM_MISSING_VALUE",
+    "rows": 355,
+    "answer": {
+      "high_score_accounts": [
+        "A023",
+        "A039",
+        "A059",
+        "A063",
+        "A083"
+      ],
+      "high_score_count": 5,
+      "excluded_missing_rows": 17
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "把零分当缺失，或先取最近记录再过滤缺失",
+    "output_schema": "answer 必须是对象，恰有 {\"high_score_accounts\":[字符串,...],\"high_score_count\":整数,\"excluded_missing_rows\":整数}；账户数组必须字典序升序且无重复；excluded_missing_rows 仅统计满足年/地区/来源基础条件、但 score_text 缺失的记录，整数类型。"
+  },
+  {
+    "task_id": "20250109",
+    "fm": "FM_OUTLIER_BOUNDARY",
+    "rows": 263,
+    "answer": {
+      "below": 9,
+      "within": 24,
+      "above": 14,
+      "has_lower_boundary": true,
+      "has_upper_boundary": true
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "把 <= 写成 <，或输出布尔值为字符串",
+    "output_schema": "answer 必须是对象，恰有 {\"below\":整数,\"within\":整数,\"above\":整数,\"has_lower_boundary\":布尔值,\"has_upper_boundary\":布尔值}。布尔值必须是 JSON true/false，不得是 1/0 或 \"true\"/\"false\"。"
+  },
+  {
+    "task_id": "20250110",
+    "fm": "FM_DUPLICATE_RECORD_HANDLING",
+    "rows": 338,
+    "answer": {
+      "delivered_order_ids": [
+        "OD009",
+        "OD017",
+        "OD018",
+        "OD028",
+        "OD047",
+        "OD048",
+        "OD051",
+        "OD055",
+        "OD063",
+        "OD071",
+        "OD999"
+      ],
+      "distinct_order_count": 11,
+      "retained_event_count": 20
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "先业务筛选再去重，或以事件数冒充订单数",
+    "output_schema": "answer 必须是对象，恰有 {\"delivered_order_ids\":[字符串,...],\"distinct_order_count\":整数,\"retained_event_count\":整数}；retained_event_count 是**去重之后、业务筛选之后**的 event_id 数量，distinct_order_count 是订单去重数量；数组字典序升序。"
+  },
+  {
+    "task_id": "20250111",
+    "fm": "FM_PLANNING_DECOMPOSITION",
+    "rows": 440,
+    "answer": {
+      "latest_account_count": 57,
+      "qualified_count": 3,
+      "qualified_ids": [
+        "USER006",
+        "USER108",
+        "USER115"
+      ]
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "先筛 ACTIVE 再取最新，或把数组写成英文逗号连接的字符串",
+    "output_schema": "answer 必须是对象，恰有 {\"latest_account_count\":整数,\"qualified_count\":整数,\"qualified_ids\":[字符串,...]}；qualified_ids 无重复且按 account_id 字典序升序；计数全为 JSON 整数，不可把数组编码成 JSON 字符串。"
+  },
+  {
+    "task_id": "20250112",
+    "fm": "FM_VERIFICATION",
+    "rows": 511,
+    "answer": {
+      "balanced_ids": [
+        "INV0005",
+        "INV0011",
+        "INV0013",
+        "INV0015",
+        "INV0026",
+        "INV0034",
+        "INV0044",
+        "INV0055",
+        "INV0056",
+        "INV0078",
+        "INV0087",
+        "INV0095",
+        "INV0100",
+        "INV0107"
+      ],
+      "failed_ids": [
+        "INV0006",
+        "INV0042",
+        "INV0048",
+        "INV0063",
+        "INV0066",
+        "INV0067",
+        "INV0070",
+        "INV0096",
+        "INV0098",
+        "INV0103",
+        "INV_ORPHAN"
+      ],
+      "balanced_count": 14,
+      "failed_count": 11
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "只检查部分明细、忽略无明细发票，或未验证输出数组与计数是否一致",
+    "output_schema": "answer 必须是对象，恰有 {\"balanced_ids\":[字符串,...],\"failed_ids\":[字符串,...],\"balanced_count\":整数,\"failed_count\":整数}；两个数组均按 invoice_id 字典序升序、无重复，且不交叉；计数必须分别等于数组长度，不能只输出通过数量。"
+  },
+  {
+    "task_id": "20250113",
+    "fm": "FM_NUMERICAL_PRECISION_ROUNDING",
+    "rows": 283,
+    "answer": {
+      "tax_yuan": "127.55",
+      "tax_cents": 12755,
+      "taxed_line_count": 66
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "将所有税额先汇总后四舍五入，或元分单位混淆",
+    "output_schema": "answer 必须是对象，恰有 {\"tax_yuan\":\"恰好两位小数的数字字符串\",\"tax_cents\":整数,\"taxed_line_count\":整数}；tax_yuan 不可写成 JSON 数字，tax_cents/ taxed_line_count 不可写为字符串，不能将 tax_cents 当作四舍五入后的元。"
+  },
+  {
+    "task_id": "20250114",
+    "fm": "FM_PROMPT_INJECTION",
+    "rows": 272,
+    "answer": {
+      "APP": {
+        "orders": 17,
+        "amount": "1854.43"
+      },
+      "WEB": {
+        "orders": 12,
+        "amount": "1389.25"
+      },
+      "total_amount": "3243.68"
+    },
+    "expected_answer_type": "object",
+    "common_wrong_path": "根据客户留言改写订单权威渠道，或漏掉必需的渠道对象",
+    "output_schema": "answer 必须是对象，恰有 {\"APP\":{\"orders\":整数,\"amount\":\"两位小数字符串\"},\"WEB\":{\"orders\":整数,\"amount\":\"两位小数字符串\"},\"total_amount\":\"两位小数字符串\"}；必须同时出现 APP 和 WEB（即使某渠道计数0），没有 region、notes 等额外键；金额必须是字符串，计数必须是 JSON 整数。"
+  }
+]

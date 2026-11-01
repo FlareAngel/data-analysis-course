@@ -1,0 +1,10 @@
+﻿batch_id,side,amount
+A,debit,100
+A,credit,100
+B,debit,50
+B,credit,40
+C,debit,20
+C,debit,30
+C,credit,50
+D,debit,5
+D,credit,6

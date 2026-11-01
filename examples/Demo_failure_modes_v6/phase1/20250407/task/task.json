@@ -1,0 +1,10 @@
+{
+  "description": "统计东北支付事件在洛杉矶夏令时结束当天的本地时段",
+  "task_statement": "发生时间 occurred_at 均为 UTC，统计的是 America/Los_Angeles 当地的 2024-11-03 00:00:00（含）至 2024-11-04 00:00:00（不含）的自然日，而不是 UTC 日期；11 月 3 日夏令时回拨使 01:00—01:59 出现两次，应按对应 UTC 偏移 -07:00 与 -08:00 分别统计，不能合并或漏计。NE、N-E 代表东北，CAPTURE、CAPTURE_OK、C 代表有效捕获，其他事件不计。只输出 {\"answer\":{\"local_day_count\":整数,\"hour_01_pdt\":整数,\"hour_01_pst\":整数}}，三个字段均为整数。",
+  "hypothesized_failure_mode": "FM_TIME_TIMEZONE",
+  "answer": {
+    "local_day_count": 33,
+    "hour_01_pdt": 3,
+    "hour_01_pst": 2
+  }
+}

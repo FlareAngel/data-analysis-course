@@ -1,0 +1,6 @@
+{
+  "description": "按指定时区筛选自然日",
+  "task_statement": "数据文件：data.csv。timestamp_utc为UTC ISO时间。统计America/Los_Angeles时区2025-03-09自然日内的事件数，左闭右开，包含夏令时切换。输出整数。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_TIME_TIMEZONE",
+  "answer": 3
+}

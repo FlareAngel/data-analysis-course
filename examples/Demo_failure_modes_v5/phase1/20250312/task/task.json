@@ -1,0 +1,31 @@
+{
+  "description": "逐票核验东北区已入账发票明细平衡性并返回通过失败清单",
+  "task_statement": "data.csv同时保存发票头和明细，invoice_id是关联发票的键，row_id只用于区分行；geo_ref的A1、A2、NE-A、NE-B均指东北，B1/B2、C1/C2、D1/D2、E1/E2分别指西北、东南、西南、中部，geo_adjust的NONE或STAY表示方向不变，FLIP_EW或SWAP_EW表示东西对调，FLIP_NS或SWAP_NS表示南北对调，以校正后地区为准；record_class的L1/L2有效、T1/Q1无效，但override_code为FORCE_KEEP或KEEP时强制保留，为FORCE_DROP或DROP时强制排除，为NONE或AUTO时才按record_class决定，覆盖规则优先；entity_code中的T41/T42/HEADER_ROW/INVOICE_HEAD均表示发票头HEADER，T51/T52/LINE_ROW/DETAIL均表示明细LINE；state_code中的Z17A/Z17B/POSTED/BOOKED均表示已入账POSTED、Z18A/Z18B表示草稿DRAFT、Z05A/Z05B表示作废VOID；money_unit为YUAN或CNY时表示元，为CENT或FEN时表示分（除以100转元），金额按Decimal计算；发票头的declared_total和明细的line_amount各自按其money_unit换算，不得使用明细行的日期或状态代替发票头信息；先从HEADER中选择invoice_date在2023年、地区为东北且状态为POSTED的发票，对每张候选发票按invoice_id找出全部参与统计的LINE并将line_amount按十进制精确求和，只有至少存在一条明细且明细合计严格等于该HEADER的declared_total才算核验通过，没有明细或金额不相等均算失败，没有合格HEADER的孤立LINE不计入候选，分别列出通过和失败的发票并核对数量；仅输出合法JSON，顶层仅有answer，其值为只含balanced_ids、failed_ids、balanced_count、failed_count四个键的对象，前两项是各自无重复、按invoice_id字典序升序且互不交叉的字符串数组，后两项是分别等于相应数组长度的JSON整数，不得增加字段或文字。",
+  "hypothesized_failure_mode": "FM_VERIFICATION",
+  "answer": {
+    "balanced_ids": [
+      "INV0026",
+      "INV0044",
+      "INV0087",
+      "INV0095",
+      "INV0107"
+    ],
+    "failed_ids": [
+      "INV0006",
+      "INV0011",
+      "INV0013",
+      "INV0042",
+      "INV0048",
+      "INV0056",
+      "INV0063",
+      "INV0066",
+      "INV0067",
+      "INV0078",
+      "INV0096",
+      "INV0100",
+      "INV0103"
+    ],
+    "balanced_count": 5,
+    "failed_count": 13
+  }
+}

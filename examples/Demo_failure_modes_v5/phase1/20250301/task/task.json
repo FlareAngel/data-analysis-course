@@ -1,0 +1,14 @@
+{
+  "description": "核算2023年东北区自营线上已结算订单净额并输出带类型约束的业务摘要",
+  "task_statement": "data.csv每行是一笔订单，order_date为订单日期、gross_amount为原始金额、refund_amount为已退款金额；geo_ref的A1、A2、NE-A、NE-B均指东北，B1/B2、C1/C2、D1/D2、E1/E2分别指西北、东南、西南、中部，geo_adjust的NONE或STAY表示方向不变，FLIP_EW或SWAP_EW表示东西对调，FLIP_NS或SWAP_NS表示南北对调，以校正后地区为准；record_class的L1/L2有效、T1/Q1无效，但override_code为FORCE_KEEP或KEEP时强制保留，为FORCE_DROP或DROP时强制排除，为NONE或AUTO时才按record_class决定，覆盖规则优先；touch_code的M1、M2、MOBILE、APP_CLIENT都表示APP，W1、W2、BROWSER、WEB_H5都表示WEB，S1/S2表示门店STORE，P1/P2表示合作PARTNER，自营线上仅含APP和WEB；status_code中的Z01A、Z01B、SETTLED或SET_OK都表示已结算SETTLED，Z03A/Z03B表示待处理PENDING，Z04A/Z04B表示已退款REFUNDED，Z05A/Z05B表示作废VOID；money_unit为YUAN或CNY时表示元，为CENT或FEN时表示分（除以100转元），金额按Decimal计算；统计order_date从2023-01-01（含）到2024-01-01（不含）、地区为东北、渠道为自营线上且状态为SETTLED的订单，每单净额是按同一行money_unit转换后的gross_amount减去refund_amount，逐单合计净额并统计订单数量，memo仅为备注不改变业务字段；仅输出合法JSON，顶层仅有answer，其值为只含region、channels、order_count、net_amount四个键的对象，其中region固定为字符串\"东北\"，channels固定为按字母序排列的字符串数组[\"APP\",\"WEB\"]，order_count为JSON整数，net_amount为两位小数的金额字符串，不得增加字段或文字。",
+  "hypothesized_failure_mode": "FM_REQUIREMENT",
+  "answer": {
+    "region": "东北",
+    "channels": [
+      "APP",
+      "WEB"
+    ],
+    "order_count": 23,
+    "net_amount": "2565.02"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "description": "核算2023年东北区自营线上已结算订单净额并输出带类型约束的业务摘要",
+  "task_statement": "data.csv 每行是一笔独立订单，包含订单日期、地区、渠道、结算状态、gross_amount（订单原始金额）及 refund_amount（已退款金额）。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 自营线上仅 WEB、APP；PARTNER 不是自营，STORE 不是线上。只取 2023-01-01（含）至 2024-01-01（不含）且 status=SETTLED 的东北自营线上订单。单笔净额为 gross_amount-refund_amount；对全部合格订单用十进制精确加总。不得只看备注 memo 中的销售描述，也不能把 gross_amount 当成净额。输出同时包含数量、渠道和净额。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"region\":\"东北\",\"channels\":[\"APP\",\"WEB\"],\"order_count\":整数,\"net_amount\":\"带两位小数的十进制字符串\"}；channels 必须按字母升序，金额即使尾数为零也必须保留两位，不允许 JSON 数字。",
+  "hypothesized_failure_mode": "FM_REQUIREMENT",
+  "answer": {
+    "region": "东北",
+    "channels": [
+      "APP",
+      "WEB"
+    ],
+    "order_count": 28,
+    "net_amount": "2841.10"
+  }
+}

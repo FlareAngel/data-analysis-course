@@ -1,0 +1,15 @@
+{
+  "description": "找出东北区四月上旬最早确认送达的五笔配送订单",
+  "task_statement": "送达时间 delivered_at 使用 ISO 8601 时间及各自时区偏移，筛选 2024-04-01 00:00:00 UTC（含）至 2024-04-06 00:00:00 UTC（不含）实际送达的东北订单（region 取 NE 或 N-E），状态 DELIVERED、DONE、D 均表示已送达；输入中的 planned_date 是计划日期，不用于筛选。先将 delivered_at 换算成 UTC，再按实际送达时间升序、同一 UTC 时刻按 order_id 升序取前五笔；输出 {\"answer\":{\"order_ids\":[五个字符串],\"first_delivery_utc\":\"ISO8601 的 YYYY-MM-DDTHH:MM:SSZ 字符串\"}}，不输出其他内容。",
+  "hypothesized_failure_mode": "FM_FILTER_SORT",
+  "answer": {
+    "order_ids": [
+      "EDGE_Y",
+      "EDGE_Z",
+      "X0035",
+      "X0025",
+      "X0009"
+    ],
+    "first_delivery_utc": "2024-04-01T00:00:00Z"
+  }
+}

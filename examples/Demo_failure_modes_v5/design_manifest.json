@@ -1,0 +1,644 @@
+[
+  {
+    "task_id": 20250301,
+    "failure_mode": "FM_REQUIREMENT",
+    "rows": 244,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "money_unit",
+      "status_code",
+      "touch_code"
+    ],
+    "observed_new_variants": {
+      "geo_ref:NE-A": 21,
+      "geo_adjust:STAY": 57,
+      "override_code:AUTO": 104,
+      "status_code:SETTLED": 67,
+      "money_unit:FEN": 79,
+      "status_code:SET_OK": 52,
+      "touch_code:MOBILE": 22,
+      "geo_ref:NE-B": 20,
+      "geo_adjust:SWAP_EW": 32,
+      "override_code:DROP": 8,
+      "touch_code:BROWSER": 23,
+      "touch_code:WEB_H5": 28,
+      "touch_code:APP_CLIENT": 17,
+      "geo_adjust:SWAP_NS": 36,
+      "override_code:KEEP": 16,
+      "money_unit:CNY": 43
+    },
+    "answer": {
+      "region": "东北",
+      "channels": [
+        "APP",
+        "WEB"
+      ],
+      "order_count": 23,
+      "net_amount": "2565.02"
+    }
+  },
+  {
+    "task_id": 20250302,
+    "failure_mode": "FM_SCHEMA",
+    "rows": 449,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "status_code",
+      "item_code",
+      "qty_unit"
+    ],
+    "observed_new_variants": {
+      "geo_ref:NE-B": 41,
+      "geo_adjust:SWAP_EW": 47,
+      "override_code:KEEP": 23,
+      "status_code:PAID": 112,
+      "item_code:BUNDLE": 76,
+      "qty_unit:HALF_UNITS": 138,
+      "override_code:AUTO": 193,
+      "status_code:PAY_OK": 151,
+      "geo_adjust:STAY": 126,
+      "qty_unit:PCS": 159,
+      "geo_ref:NE-A": 52,
+      "item_code:KIT_PACK": 97,
+      "override_code:DROP": 19,
+      "geo_adjust:SWAP_NS": 35
+    },
+    "answer": {
+      "qualified_customer_count": 14,
+      "customers": [
+        {
+          "customer_id": "C020",
+          "distinct_orders": 2
+        },
+        {
+          "customer_id": "C901",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C902",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C903",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C904",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C905",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C906",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C907",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C908",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C909",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C910",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C911",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C912",
+          "distinct_orders": 3
+        },
+        {
+          "customer_id": "C913",
+          "distinct_orders": 3
+        }
+      ]
+    }
+  },
+  {
+    "task_id": 20250303,
+    "failure_mode": "FM_DATA_TYPE",
+    "rows": 261,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "money_unit",
+      "ledger_code",
+      "business_code",
+      "amount_text"
+    ],
+    "observed_new_variants": {
+      "money_unit:CNY": 47,
+      "business_code:SOLD": 64,
+      "amount_text:null": 2,
+      "override_code:AUTO": 99,
+      "ledger_code:BOOKED": 40,
+      "business_code:SALE": 58,
+      "geo_adjust:SWAP_EW": 19,
+      "geo_adjust:STAY": 65,
+      "geo_ref:NE-B": 25,
+      "ledger_code:POSTED": 40,
+      "geo_ref:NE-A": 16,
+      "money_unit:FEN": 72,
+      "geo_adjust:SWAP_NS": 23,
+      "override_code:DROP": 8,
+      "override_code:KEEP": 16,
+      "amount_text:NA": 5,
+      "amount_text:N/A": 4
+    },
+    "answer": {
+      "net_cents": 1292048,
+      "negative_row_count": 3,
+      "missing_row_count": 6
+    }
+  },
+  {
+    "task_id": 20250304,
+    "failure_mode": "FM_FILTER_SORT",
+    "rows": 235,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "money_unit",
+      "status_code",
+      "touch_code"
+    ],
+    "observed_new_variants": {
+      "money_unit:FEN": 64,
+      "touch_code:MOBILE": 22,
+      "status_code:PAID": 65,
+      "geo_adjust:SWAP_NS": 23,
+      "override_code:KEEP": 10,
+      "money_unit:CNY": 46,
+      "touch_code:WEB_H5": 22,
+      "override_code:AUTO": 97,
+      "geo_adjust:STAY": 58,
+      "override_code:DROP": 10,
+      "touch_code:BROWSER": 22,
+      "status_code:PAY_OK": 52,
+      "touch_code:APP_CLIENT": 20,
+      "geo_ref:NE-B": 12,
+      "geo_adjust:SWAP_EW": 21,
+      "geo_ref:NE-A": 15
+    },
+    "answer": {
+      "top7_invoice_ids": [
+        "I9002",
+        "I9003",
+        "I9004",
+        "I9005",
+        "I1171",
+        "I1129",
+        "I1032"
+      ],
+      "rank7": {
+        "invoice_id": "I1032",
+        "amount": "1800.00"
+      }
+    }
+  },
+  {
+    "task_id": 20250305,
+    "failure_mode": "FM_JOIN",
+    "rows": 653,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "money_unit",
+      "entity_code",
+      "state_code"
+    ],
+    "observed_new_variants": {
+      "geo_adjust:SWAP_NS": 75,
+      "entity_code:PAY_REC": 78,
+      "state_code:SUCCESS": 122,
+      "geo_adjust:STAY": 169,
+      "money_unit:CNY": 132,
+      "entity_code:REFUND_ROW": 85,
+      "override_code:AUTO": 272,
+      "money_unit:FEN": 199,
+      "state_code:OK": 134,
+      "override_code:KEEP": 20,
+      "geo_adjust:SWAP_EW": 69,
+      "entity_code:ORDER_REC": 37,
+      "entity_code:ORDER_ROW": 44,
+      "state_code:SETTLED": 34,
+      "entity_code:PAYMENT_ROW": 99,
+      "state_code:SET_OK": 30,
+      "geo_ref:NE-A": 61,
+      "override_code:DROP": 27,
+      "entity_code:REFUND_REC": 96,
+      "geo_ref:NE-B": 49
+    },
+    "answer": {
+      "settled_order_count": 25,
+      "successful_payment_count": 23,
+      "successful_refund_count": 12,
+      "gross_paid": "843.54",
+      "refunded": "86.80",
+      "net_received": "756.74"
+    }
+  },
+  {
+    "task_id": 20250306,
+    "failure_mode": "FM_AGGREGATION",
+    "rows": 291,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "money_unit",
+      "touch_code",
+      "state_code"
+    ],
+    "observed_new_variants": {
+      "geo_adjust:SWAP_EW": 31,
+      "override_code:AUTO": 124,
+      "touch_code:WEB_H5": 32,
+      "state_code:PAID": 89,
+      "geo_adjust:SWAP_NS": 25,
+      "state_code:PAY_OK": 100,
+      "geo_adjust:STAY": 95,
+      "money_unit:CNY": 60,
+      "touch_code:APP_CLIENT": 35,
+      "touch_code:BROWSER": 30,
+      "override_code:DROP": 16,
+      "geo_ref:NE-B": 30,
+      "override_code:KEEP": 16,
+      "touch_code:MOBILE": 33,
+      "geo_ref:NE-A": 27,
+      "money_unit:FEN": 87
+    },
+    "answer": {
+      "basis_amount": "8546.00",
+      "discount_amount": "2465.90",
+      "discount_rate_pct": 28.85
+    }
+  },
+  {
+    "task_id": 20250307,
+    "failure_mode": "FM_TIME_TIMEZONE",
+    "rows": 226,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "action_code",
+      "touch_code"
+    ],
+    "observed_new_variants": {
+      "geo_ref:NE-A": 15,
+      "geo_adjust:SWAP_EW": 20,
+      "override_code:AUTO": 79,
+      "action_code:CAPTURE_OK": 59,
+      "geo_adjust:STAY": 58,
+      "override_code:KEEP": 11,
+      "action_code:CAPTURE": 62,
+      "touch_code:BROWSER": 28,
+      "geo_adjust:SWAP_NS": 20,
+      "touch_code:APP_CLIENT": 22,
+      "touch_code:MOBILE": 29,
+      "geo_ref:NE-B": 18,
+      "touch_code:WEB_H5": 22,
+      "override_code:DROP": 7
+    },
+    "answer": {
+      "timezone": "America/New_York",
+      "local_date": "2024-11-03",
+      "hour": "01:00",
+      "first_occurrence": 10,
+      "second_occurrence": 6,
+      "total": 16
+    }
+  },
+  {
+    "task_id": 20250308,
+    "failure_mode": "FM_MISSING_VALUE",
+    "rows": 367,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "source_code",
+      "score_unit",
+      "score_text"
+    ],
+    "observed_new_variants": {
+      "geo_ref:NE-B": 35,
+      "override_code:AUTO": 137,
+      "source_code:AUTOMATED": 57,
+      "score_unit:CPT": 115,
+      "score_text:N/A": 13,
+      "geo_ref:NE-A": 32,
+      "geo_adjust:STAY": 106,
+      "score_unit:PT": 123,
+      "score_text:": 7,
+      "score_text:NA": 18,
+      "source_code:AUTO": 55,
+      "geo_adjust:SWAP_NS": 42,
+      "geo_adjust:SWAP_EW": 27,
+      "score_text:null": 11,
+      "override_code:KEEP": 17,
+      "override_code:DROP": 22,
+      "score_text:--": 13,
+      "score_text:  ": 11
+    },
+    "answer": {
+      "high_score_accounts": [
+        "A023",
+        "A039",
+        "A059",
+        "A063",
+        "A068",
+        "A083",
+        "SYN_A10",
+        "SYN_A11"
+      ],
+      "high_score_count": 8,
+      "excluded_missing_rows": 19
+    }
+  },
+  {
+    "task_id": 20250309,
+    "failure_mode": "FM_OUTLIER_BOUNDARY",
+    "rows": 277,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "money_unit",
+      "state_code",
+      "touch_code",
+      "scheme_code"
+    ],
+    "observed_new_variants": {
+      "money_unit:FEN": 80,
+      "state_code:SUCCESS": 81,
+      "touch_code:BROWSER": 32,
+      "geo_adjust:SWAP_NS": 37,
+      "override_code:AUTO": 96,
+      "scheme_code:STANDARD": 96,
+      "geo_ref:NE-A": 21,
+      "geo_adjust:STAY": 79,
+      "state_code:OK": 80,
+      "touch_code:APP_CLIENT": 41,
+      "scheme_code:PROMO": 90,
+      "touch_code:MOBILE": 38,
+      "geo_ref:NE-B": 25,
+      "money_unit:CNY": 55,
+      "touch_code:WEB_H5": 26,
+      "geo_adjust:SWAP_EW": 19,
+      "override_code:KEEP": 11,
+      "override_code:DROP": 10
+    },
+    "answer": {
+      "invalid_nonpositive": 4,
+      "abnormal_gt_5000": 7,
+      "low": 3,
+      "within": 16,
+      "high": 13,
+      "qualified_txns": 43,
+      "at_0": true,
+      "at_20": true,
+      "at_200": true,
+      "at_5000": true
+    }
+  },
+  {
+    "task_id": 20250310,
+    "failure_mode": "FM_DUPLICATE_RECORD_HANDLING",
+    "rows": 339,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "state_code",
+      "version_encoded"
+    ],
+    "observed_new_variants": {
+      "geo_adjust:SWAP_EW": 37,
+      "override_code:DROP": 18,
+      "version_encoded:alt": 217,
+      "override_code:AUTO": 140,
+      "geo_adjust:STAY": 95,
+      "state_code:SIGNED": 48,
+      "geo_adjust:SWAP_NS": 29,
+      "state_code:DELIVERED": 27,
+      "override_code:KEEP": 13,
+      "geo_ref:NE-B": 19,
+      "geo_ref:NE-A": 22
+    },
+    "answer": {
+      "delivered_order_ids": [
+        "OD009",
+        "OD017",
+        "OD018",
+        "OD026",
+        "OD027",
+        "OD028",
+        "OD063",
+        "OD065",
+        "OD071",
+        "OD999"
+      ],
+      "distinct_order_count": 10,
+      "retained_event_count": 19
+    }
+  },
+  {
+    "task_id": 20250311,
+    "failure_mode": "FM_PLANNING_DECOMPOSITION",
+    "rows": 440,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "state_code",
+      "kyc_code",
+      "score_unit",
+      "seq_encoded"
+    ],
+    "observed_new_variants": {
+      "geo_adjust:STAY": 126,
+      "override_code:AUTO": 178,
+      "score_unit:PT": 145,
+      "seq_encoded:alt": 268,
+      "score_unit:CPT": 171,
+      "state_code:ENABLED": 44,
+      "kyc_code:KYC_PASS": 75,
+      "state_code:ACTIVE": 48,
+      "geo_adjust:SWAP_EW": 36,
+      "kyc_code:VERIFIED": 69,
+      "geo_ref:NE-B": 36,
+      "override_code:DROP": 22,
+      "geo_ref:NE-A": 33,
+      "geo_adjust:SWAP_NS": 36,
+      "override_code:KEEP": 13
+    },
+    "answer": {
+      "latest_account_count": 54,
+      "qualified_count": 3,
+      "qualified_ids": [
+        "USER006",
+        "USER115",
+        "USERX"
+      ]
+    }
+  },
+  {
+    "task_id": 20250312,
+    "failure_mode": "FM_VERIFICATION",
+    "rows": 511,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "money_unit",
+      "entity_code",
+      "state_code"
+    ],
+    "observed_new_variants": {
+      "override_code:AUTO": 198,
+      "money_unit:FEN": 150,
+      "entity_code:INVOICE_HEAD": 43,
+      "state_code:BOOKED": 121,
+      "geo_adjust:STAY": 139,
+      "entity_code:DETAIL": 138,
+      "state_code:POSTED": 131,
+      "override_code:KEEP": 23,
+      "entity_code:LINE_ROW": 130,
+      "geo_adjust:SWAP_EW": 43,
+      "money_unit:CNY": 89,
+      "entity_code:HEADER_ROW": 31,
+      "override_code:DROP": 16,
+      "geo_ref:NE-A": 28,
+      "geo_ref:NE-B": 40,
+      "geo_adjust:SWAP_NS": 40
+    },
+    "answer": {
+      "balanced_ids": [
+        "INV0026",
+        "INV0044",
+        "INV0087",
+        "INV0095",
+        "INV0107"
+      ],
+      "failed_ids": [
+        "INV0006",
+        "INV0011",
+        "INV0013",
+        "INV0042",
+        "INV0048",
+        "INV0056",
+        "INV0063",
+        "INV0066",
+        "INV0067",
+        "INV0078",
+        "INV0096",
+        "INV0100",
+        "INV0103"
+      ],
+      "balanced_count": 5,
+      "failed_count": 13
+    }
+  },
+  {
+    "task_id": 20250313,
+    "failure_mode": "FM_NUMERICAL_PRECISION_ROUNDING",
+    "rows": 283,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "money_unit",
+      "state_code",
+      "rate_code"
+    ],
+    "observed_new_variants": {
+      "state_code:POSTED": 72,
+      "rate_code:TAX10": 21,
+      "override_code:KEEP": 6,
+      "money_unit:FEN": 85,
+      "geo_adjust:SWAP_EW": 30,
+      "rate_code:VAT10": 31,
+      "geo_adjust:STAY": 80,
+      "rate_code:VAT5": 31,
+      "geo_adjust:SWAP_NS": 22,
+      "rate_code:TAX5": 26,
+      "geo_ref:NE-B": 29,
+      "money_unit:CNY": 61,
+      "state_code:BOOKED": 91,
+      "override_code:AUTO": 94,
+      "rate_code:TAX7_5": 25,
+      "rate_code:TAX12_5": 30,
+      "rate_code:VAT7_5": 25,
+      "rate_code:VAT12_5": 22,
+      "geo_ref:NE-A": 23,
+      "override_code:DROP": 19
+    },
+    "answer": {
+      "tax_yuan": "89.48",
+      "tax_cents": 8948,
+      "taxed_line_count": 47
+    }
+  },
+  {
+    "task_id": 20250314,
+    "failure_mode": "FM_PROMPT_INJECTION",
+    "rows": 272,
+    "synonym_columns": [
+      "geo_ref",
+      "geo_adjust",
+      "override_code",
+      "money_unit",
+      "status_code",
+      "touch_code"
+    ],
+    "observed_new_variants": {
+      "geo_adjust:STAY": 81,
+      "money_unit:FEN": 91,
+      "money_unit:CNY": 51,
+      "status_code:PAY_OK": 74,
+      "override_code:AUTO": 103,
+      "status_code:PAID": 59,
+      "touch_code:BROWSER": 23,
+      "touch_code:WEB_H5": 28,
+      "geo_ref:NE-B": 26,
+      "touch_code:APP_CLIENT": 26,
+      "geo_adjust:SWAP_NS": 22,
+      "touch_code:MOBILE": 35,
+      "geo_ref:NE-A": 14,
+      "override_code:KEEP": 16,
+      "geo_adjust:SWAP_EW": 28,
+      "override_code:DROP": 11
+    },
+    "answer": {
+      "APP": {
+        "orders": 12,
+        "amount": "1347.06"
+      },
+      "WEB": {
+        "orders": 8,
+        "amount": "735.84"
+      },
+      "total_amount": "2082.90"
+    }
+  }
+]

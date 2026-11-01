@@ -1,0 +1,66 @@
+{
+  "description": "统计2023年东北区重复购买指定套件的客户并按订单粒度输出客户清单",
+  "task_statement": "data.csv 每行是订单明细（line_id 才是行主键），order_id 表示订单，customer_id 表示客户；同一订单可能有多行 KIT。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 只统计 2023 年、东北、status=PAID 的记录。一笔“合格订单”要求该订单至少存在一行 sku=KIT 且 qty 整数≥2；一笔订单只算一次，即使多行满足要求。每位客户至少有两笔**不同的合格 order_id**才入选。逐客户输出合格订单数，不可把 KIT 明细行数当成订单数。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"qualified_customer_count\":整数,\"customers\":[{\"customer_id\":字符串,\"distinct_orders\":整数},...]}；customers 只列入选客户，按 customer_id 字典序升序，数组元素对象恰有这两个键；数量必须是 JSON 整数，不能输出 \"14\" 这样的字符串。",
+  "hypothesized_failure_mode": "FM_SCHEMA",
+  "answer": {
+    "qualified_customer_count": 14,
+    "customers": [
+      {
+        "customer_id": "C020",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C901",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C902",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C903",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C904",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C905",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C906",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C907",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C908",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C909",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C910",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C911",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C912",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C913",
+        "distinct_orders": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "description": "计算东北区七月前三天接口系统的实际停机分钟数",
+  "task_statement": "每行记录一次服务中断区间 [start_at,end_at)，其中 NE、N-E 都表示东北，service 的 API、api 表示接口系统，OUTAGE、DOWN 表示影响可用性的停机，MAINT 表示计划维护且不计入；统计窗口为 UTC 的 [2024-07-01 00:00:00,2024-07-04 00:00:00)，跨窗口的中断只计窗口内重叠部分，同一服务内重叠的停机区间必须合并，不能重复累计分钟数，区间端点相接不增加时长。仅输出 {\"answer\":{\"downtime_minutes\":整数,\"availability_percent\":\"两位小数字符串\"}}，可用率为(窗口总分钟数减停机分钟数)/窗口总分钟数×100。",
+  "hypothesized_failure_mode": "FM_AGGREGATION",
+  "answer": {
+    "downtime_minutes": 480,
+    "availability_percent": "88.89"
+  }
+}

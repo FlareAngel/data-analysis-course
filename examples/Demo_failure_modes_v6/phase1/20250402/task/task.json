@@ -1,0 +1,35 @@
+{
+  "description": "统计东北区截至闰日结束时仍处于关闭状态的唯一客服工单",
+  "task_statement": "CSV 每行表示同一 ticket_id 的一次状态事件而不是一张独立工单；event_at 为状态实际生效时间，opened_at 为首次创建时间，event_seq 是同一工单状态事件的整数序号。判断截至 2024-03-01 00:00:00 UTC（不含该时刻）的状态时，先仅保留此前生效的事件，再对每个 ticket_id 选 event_at 最晚的一行，同一时刻按 event_seq 最大的一行确定状态；CLOSED、DONE 都表示已关闭，OPEN、O、REOPEN 都不是已关闭，region 为 NE 或 N-E 才属东北，source 为 bot 的事件同样有效。输出严格 JSON 对象 {\"answer\":{\"closed_ticket_count\":整数,\"closed_ticket_ids\":[按字典序升序排列的字符串]}}，不能多字段。",
+  "hypothesized_failure_mode": "FM_SCHEMA",
+  "answer": {
+    "closed_ticket_count": 25,
+    "closed_ticket_ids": [
+      "EDGE_A",
+      "T001",
+      "T010",
+      "T014",
+      "T015",
+      "T017",
+      "T022",
+      "T024",
+      "T028",
+      "T034",
+      "T035",
+      "T039",
+      "T049",
+      "T052",
+      "T053",
+      "T054",
+      "T067",
+      "T069",
+      "T070",
+      "T071",
+      "T072",
+      "T073",
+      "T079",
+      "T084",
+      "T085"
+    ]
+  }
+}

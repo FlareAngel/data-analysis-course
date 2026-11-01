@@ -1,0 +1,36 @@
+{
+  "description": "计算东北会员十月底仍有效且近三十天登录过的账户数量",
+  "task_statement": "每行是一条会员状态与行为的合并事件，occurred_at 是 UTC 事件时间，report 时点为 2024-11-01 00:00:00 UTC（不含）；NE、N-E 为东北，ACTIVE、ENABLED 均表示有效，SUSPENDED、PAUSED 表示暂停，LOGIN、SIGNIN 表示登录。先保留报表时点之前每个 member_id 的全部事件并以 occurred_at 最新、序号 seq 最大的记录确定该会员当前状态，然后只保留当前状态有效者；对这些会员，再检查是否存在位于 [2024-10-02 00:00:00,2024-11-01 00:00:00) 的 LOGIN 或 SIGNIN 事件，不能先删掉暂停记录后再取最新状态。输出 {\"answer\":{\"member_ids\":[升序字符串数组],\"member_count\":整数}}，不得加其他字段。",
+  "hypothesized_failure_mode": "FM_PLANNING_DECOMPOSITION",
+  "answer": {
+    "member_ids": [
+      "M005",
+      "M006",
+      "M009",
+      "M012",
+      "M013",
+      "M015",
+      "M021",
+      "M024",
+      "M030",
+      "M033",
+      "M034",
+      "M047",
+      "M052",
+      "M055",
+      "M057",
+      "M060",
+      "M068",
+      "M069",
+      "M070",
+      "M072",
+      "M082",
+      "M088",
+      "M092",
+      "M095",
+      "M097",
+      "M098"
+    ],
+    "member_count": 26
+  }
+}

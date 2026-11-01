@@ -1,0 +1,6 @@
+{
+  "description": "先去重再筛选避免步骤颠倒",
+  "task_statement": "数据文件：data.csv。先按user_id取最新event_time事件（同时间取event_id字母序较大者），然后统计最新事件action=purchase的用户数；不得先筛选purchase再去重。输出整数。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_PLANNING_DECOMPOSITION",
+  "answer": 2
+}

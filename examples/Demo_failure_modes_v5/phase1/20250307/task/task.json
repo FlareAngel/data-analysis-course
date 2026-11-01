@@ -1,0 +1,13 @@
+{
+  "description": "统计东北区在纽约夏令时回拨重叠小时内的支付事件并区分第一次和第二次",
+  "task_statement": "data.csv每行是一条支付事件，event_time为带Z或UTC偏移的ISO8601时间；geo_ref的A1、A2、NE-A、NE-B均指东北，B1/B2、C1/C2、D1/D2、E1/E2分别指西北、东南、西南、中部，geo_adjust的NONE或STAY表示方向不变，FLIP_EW或SWAP_EW表示东西对调，FLIP_NS或SWAP_NS表示南北对调，以校正后地区为准；record_class的L1/L2有效、T1/Q1无效，但override_code为FORCE_KEEP或KEEP时强制保留，为FORCE_DROP或DROP时强制排除，为NONE或AUTO时才按record_class决定，覆盖规则优先；touch_code的M1/M2/MOBILE/APP_CLIENT表示APP，W1/W2/BROWSER/WEB_H5表示WEB，S1/S2为STORE，P1/P2为PARTNER，自营线上仅含APP和WEB；action_code中的E11/E12/CAPTURE/CAPTURE_OK表示支付成功捕获PAYMENT_CAPTURED，E21/E22/CREATE/CREATED表示支付创建，E31/E32/FAIL_EVENT/PAYMENT_ERROR表示支付失败，只有捕获事件计入；选取地区为东北、渠道为自营线上且action_code对应PAYMENT_CAPTURED的事件，将event_time按实际偏移转换到America/New_York时区，只统计纽约当地2024-11-03的01:00（含）至02:00（不含）发生的事件，由于夏令时结束当天01点出现两次，应按UTC-04:00的第一次和UTC-05:00的第二次分别计数并计算合计，不得按UTC日期或只按钟面小时合并；仅输出合法JSON，顶层仅有answer，其值为只含timezone、local_date、hour、first_occurrence、second_occurrence、total六个键的对象，前三项分别是字符串\"America/New_York\"、\"2024-11-03\"、\"01:00\"，后三项是JSON整数且total为两次出现的数量之和，不得增加字段或文字。",
+  "hypothesized_failure_mode": "FM_TIME_TIMEZONE",
+  "answer": {
+    "timezone": "America/New_York",
+    "local_date": "2024-11-03",
+    "hour": "01:00",
+    "first_occurrence": 10,
+    "second_occurrence": 6,
+    "total": 16
+  }
+}

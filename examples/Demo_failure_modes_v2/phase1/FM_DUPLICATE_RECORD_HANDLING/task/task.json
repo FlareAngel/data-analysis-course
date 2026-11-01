@@ -1,0 +1,6 @@
+{
+  "description": "统计东北区2023年最终有效签收事件的独立运单数",
+  "task_statement": "data.csv 每行是同一事件 event_id 的一次入库快照，多个快照并不是多个独立事件。先在**全表**按 event_id 去重：保留 received_at 最大的记录；如时间相同保留 version 数值最大的记录；再相同取 raw_id 字典序最大。region 由 N/S（北/南）与 E/W（东/西）方向编码，CN=中部。去重后筛选 event_date 位于2023年、region=NE、state=DELIVERED 的快照。计算不同 order_id（独立运单号）的数量；同运单不同 event_id 不重复计数。输出 JSON {\"answer\": 整数}。",
+  "hypothesized_failure_mode": "FM_DUPLICATE_RECORD_HANDLING",
+  "answer": 11
+}

@@ -1,0 +1,12 @@
+{
+  "description": "将东北区成功线上交易按闭区间金额分桶并严格输出边界判断",
+  "task_statement": "data.csv 每行一笔独立交易。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 仅看2023年东北、channel 属于 WEB 或 APP、state=SUCCESS 的交易。金额 Decimal 小于20.00 记 below，金额在[20.00,200.00]（**两端都包括**）记 within，金额大于200.00 记 above；负数与极端值保留在对应分桶，绝对不能删除或缩尾。另检查该筛选集是否存在 amount 精确等于20.00和200.00的记录，分别生成布尔值（不是字符串）。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"below\":整数,\"within\":整数,\"above\":整数,\"has_lower_boundary\":布尔值,\"has_upper_boundary\":布尔值}。布尔值必须是 JSON true/false，不得是 1/0 或 \"true\"/\"false\"。",
+  "hypothesized_failure_mode": "FM_OUTLIER_BOUNDARY",
+  "answer": {
+    "below": 9,
+    "within": 24,
+    "above": 14,
+    "has_lower_boundary": true,
+    "has_upper_boundary": true
+  }
+}

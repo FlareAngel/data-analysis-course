@@ -1,0 +1,10 @@
+{
+  "description": "逐行四舍五入计算东北区税额并同时输出字符串元与整数分",
+  "task_statement": "data.csv 每行应税明细，taxable_amount、tax_rate 是十进制字符串。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 仅选 effective_date 在2023年、region 对应东北、state=POSTED 的行。逐行税额=taxable_amount×tax_rate，并且**先逐行**按 Decimal ROUND_HALF_UP 四舍五入到人民币分（两位小数），再加总各行已舍入的税额；不允许先加总未舍入值再统一舍入，也不能使用二进制 float 的 round。总额和整数分必须完全一致。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"tax_yuan\":\"恰好两位小数的数字字符串\",\"tax_cents\":整数,\"taxed_line_count\":整数}；tax_yuan 不可写成 JSON 数字，tax_cents/ taxed_line_count 不可写为字符串，不能将 tax_cents 当作四舍五入后的元。",
+  "hypothesized_failure_mode": "FM_NUMERICAL_PRECISION_ROUNDING",
+  "answer": {
+    "tax_yuan": "127.55",
+    "tax_cents": 12755,
+    "taxed_line_count": 66
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "description": "使用十进制四舍五入",
+  "task_statement": "数据文件：data.csv。计算price字符串的合计后再统一保留两位小数，采用十进制ROUND_HALF_UP；不要逐行先舍入。输出数值。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_NUMERICAL_PRECISION_ROUNDING",
+  "answer": 3.02
+}

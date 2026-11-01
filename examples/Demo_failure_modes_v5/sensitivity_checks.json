@@ -1,0 +1,324 @@
+[
+  {
+    "task_id": 20250301,
+    "total_rows": 244,
+    "alias_count_by_field": {
+      "geo_ref": 41,
+      "geo_adjust": 125,
+      "override_code": 128,
+      "money_unit": 122,
+      "status_code": 119,
+      "touch_code": 90
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "money_unit": true,
+      "status_code": true,
+      "touch_code": true
+    },
+    "changed_fields": 6
+  },
+  {
+    "task_id": 20250302,
+    "total_rows": 449,
+    "alias_count_by_field": {
+      "geo_ref": 93,
+      "geo_adjust": 208,
+      "override_code": 235,
+      "status_code": 263,
+      "item_code": 173,
+      "qty_unit": 297
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "status_code": true,
+      "item_code": true,
+      "qty_unit": true
+    },
+    "changed_fields": 6
+  },
+  {
+    "task_id": 20250303,
+    "total_rows": 261,
+    "alias_count_by_field": {
+      "geo_ref": 49,
+      "geo_adjust": 115,
+      "override_code": 131,
+      "money_unit": 127,
+      "ledger_code": 88,
+      "business_code": 130,
+      "missing_forms": {
+        "": 1,
+        "NA": 6,
+        "N/A": 5,
+        "null": 2,
+        "—": 3
+      }
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "money_unit": true,
+      "ledger_code": true,
+      "business_code": true,
+      "missing_''": true,
+      "missing_'NA'": true,
+      "missing_'N/A'": true,
+      "missing_'null'": true,
+      "missing_'—'": true
+    },
+    "changed_fields": 6
+  },
+  {
+    "task_id": 20250304,
+    "total_rows": 235,
+    "alias_count_by_field": {
+      "geo_ref": 27,
+      "geo_adjust": 102,
+      "override_code": 117,
+      "money_unit": 110,
+      "status_code": 117,
+      "touch_code": 86
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "money_unit": true,
+      "status_code": true,
+      "touch_code": true
+    },
+    "changed_fields": 6
+  },
+  {
+    "task_id": 20250305,
+    "total_rows": 653,
+    "alias_count_by_field": {
+      "geo_ref": 110,
+      "geo_adjust": 313,
+      "override_code": 319,
+      "money_unit": 331,
+      "entity_code": 439,
+      "state_code": 320
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "money_unit": true,
+      "entity_code": true,
+      "state_code": true
+    },
+    "changed_fields": 6
+  },
+  {
+    "task_id": 20250306,
+    "total_rows": 291,
+    "alias_count_by_field": {
+      "geo_ref": 57,
+      "geo_adjust": 151,
+      "override_code": 156,
+      "money_unit": 147,
+      "touch_code": 130,
+      "state_code": 189
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "money_unit": true,
+      "touch_code": true,
+      "state_code": true
+    },
+    "changed_fields": 6
+  },
+  {
+    "task_id": 20250307,
+    "total_rows": 226,
+    "alias_count_by_field": {
+      "geo_ref": 33,
+      "geo_adjust": 98,
+      "override_code": 97,
+      "action_code": 121,
+      "touch_code": 101
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "action_code": true,
+      "touch_code": true
+    },
+    "changed_fields": 5
+  },
+  {
+    "task_id": 20250308,
+    "total_rows": 367,
+    "alias_count_by_field": {
+      "geo_ref": 79,
+      "geo_adjust": 187,
+      "override_code": 188,
+      "source_code": 124,
+      "score_unit": 250,
+      "missing_forms": {
+        "": 12,
+        " ": 2,
+        "  ": 13,
+        "NA": 17,
+        "N/A": 18,
+        "null": 12,
+        "NULL": 5,
+        "--": 15
+      }
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "source_code": true,
+      "score_unit": true,
+      "missing_''": true,
+      "missing_' '": true,
+      "missing_'  '": true,
+      "missing_'NA'": true,
+      "missing_'N/A'": true,
+      "missing_'null'": true,
+      "missing_'NULL'": true,
+      "missing_'--'": true
+    },
+    "changed_fields": 5
+  },
+  {
+    "task_id": 20250309,
+    "total_rows": 277,
+    "alias_count_by_field": {
+      "geo_ref": 46,
+      "geo_adjust": 135,
+      "override_code": 117,
+      "money_unit": 135,
+      "state_code": 161,
+      "touch_code": 137,
+      "scheme_code": 186
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "money_unit": true,
+      "state_code": true,
+      "touch_code": true,
+      "scheme_code": true
+    },
+    "changed_fields": 7
+  },
+  {
+    "task_id": 20250310,
+    "total_rows": 339,
+    "alias_count_by_field": {
+      "geo_ref": 41,
+      "geo_adjust": 161,
+      "override_code": 171,
+      "state_code": 75,
+      "version_encoded_alt": 217
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "state_code": true,
+      "version_encoded_alt": true
+    },
+    "changed_fields": 5
+  },
+  {
+    "task_id": 20250311,
+    "total_rows": 440,
+    "alias_count_by_field": {
+      "geo_ref": 69,
+      "geo_adjust": 198,
+      "override_code": 213,
+      "state_code": 92,
+      "kyc_code": 144,
+      "score_unit": 316,
+      "seq_encoded_alt": 268
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "state_code": true,
+      "kyc_code": true,
+      "score_unit": true,
+      "seq_encoded_alt": true
+    },
+    "changed_fields": 7
+  },
+  {
+    "task_id": 20250312,
+    "total_rows": 511,
+    "alias_count_by_field": {
+      "geo_ref": 68,
+      "geo_adjust": 222,
+      "override_code": 237,
+      "money_unit": 239,
+      "entity_code": 342,
+      "state_code": 252
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "money_unit": true,
+      "entity_code": true,
+      "state_code": true
+    },
+    "changed_fields": 6
+  },
+  {
+    "task_id": 20250313,
+    "total_rows": 283,
+    "alias_count_by_field": {
+      "geo_ref": 52,
+      "geo_adjust": 132,
+      "override_code": 119,
+      "money_unit": 146,
+      "state_code": 163,
+      "rate_code": 211
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "money_unit": true,
+      "state_code": true,
+      "rate_code": true
+    },
+    "changed_fields": 6
+  },
+  {
+    "task_id": 20250314,
+    "total_rows": 272,
+    "alias_count_by_field": {
+      "geo_ref": 40,
+      "geo_adjust": 131,
+      "override_code": 130,
+      "money_unit": 142,
+      "status_code": 133,
+      "touch_code": 112
+    },
+    "drop_alias_rows_changes_answer": {
+      "geo_ref": true,
+      "geo_adjust": true,
+      "override_code": true,
+      "money_unit": true,
+      "status_code": true,
+      "touch_code": true
+    },
+    "changed_fields": 6
+  }
+]

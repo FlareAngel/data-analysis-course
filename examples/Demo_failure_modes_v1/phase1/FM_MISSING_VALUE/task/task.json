@@ -1,0 +1,6 @@
+{
+  "description": "区分零值与缺失值",
+  "task_statement": "数据文件：data.csv。计算score有效值的算术平均。空字符串、NA、null均视为缺失；数值0是有效值。输出保留两位小数的数值。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_MISSING_VALUE",
+  "answer": 10.0
+}

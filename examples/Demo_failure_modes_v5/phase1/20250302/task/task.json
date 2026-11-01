@@ -1,0 +1,66 @@
+{
+  "description": "统计2023年东北区重复购买指定套件的客户并按订单粒度输出客户清单",
+  "task_statement": "data.csv每行是一条订单明细，line_id是明细主键，order_id是订单标识，customer_id是客户标识，一单可能有多条明细；geo_ref的A1、A2、NE-A、NE-B均指东北，B1/B2、C1/C2、D1/D2、E1/E2分别指西北、东南、西南、中部，geo_adjust的NONE或STAY表示方向不变，FLIP_EW或SWAP_EW表示东西对调，FLIP_NS或SWAP_NS表示南北对调，以校正后地区为准；record_class的L1/L2有效、T1/Q1无效，但override_code为FORCE_KEEP或KEEP时强制保留，为FORCE_DROP或DROP时强制排除，为NONE或AUTO时才按record_class决定，覆盖规则优先；status_code中的Z02A、Z02B、PAID或PAY_OK均表示已支付、Z06A/Z06B表示未支付UNPAID、Z07A/Z07B表示已取消CANCELLED；item_code中的K11、K12、BUNDLE、KIT_PACK都表示套件KIT，K21/K22/BOOK/TEXTBOOK表示图书，K31/K32/FEE/SERVICE_FEE表示费用；qty_encoded按qty_unit换算为件数，ONE或PCS取原整数，TWO或HALF_UNITS将编码数除以2；unit_price不用于合格订单判定；仅考虑order_date在2023年、地区为东北且状态为PAID的明细，一笔订单只要有至少一条KIT明细换算后件数大于或等于2就算一笔合格订单，无论符合条件的明细有多少都只按不同order_id计一次，只选拥有至少两笔不同合格订单的客户；仅输出合法JSON，顶层仅有answer，其值为只含qualified_customer_count和customers两个键的对象，其中qualified_customer_count为入选客户数的JSON整数，customers为按customer_id字典序升序排列的对象数组，每个对象仅含字符串customer_id及JSON整数distinct_orders，不得增加字段或文字。",
+  "hypothesized_failure_mode": "FM_SCHEMA",
+  "answer": {
+    "qualified_customer_count": 14,
+    "customers": [
+      {
+        "customer_id": "C020",
+        "distinct_orders": 2
+      },
+      {
+        "customer_id": "C901",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C902",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C903",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C904",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C905",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C906",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C907",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C908",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C909",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C910",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C911",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C912",
+        "distinct_orders": 3
+      },
+      {
+        "customer_id": "C913",
+        "distinct_orders": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "description": "多条件过滤并正确排序",
+  "task_statement": "数据文件：data.csv。筛选region=East且status=active的记录，按score数值降序、score相同时按id字母升序，输出排名第一的id字符串。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_FILTER_SORT",
+  "answer": "a"
+}

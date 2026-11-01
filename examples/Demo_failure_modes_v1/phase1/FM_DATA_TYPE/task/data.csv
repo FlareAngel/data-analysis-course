@@ -1,0 +1,5 @@
+﻿id,status,amount
+1,paid,"¥1,200.50"
+2,paid,350.25
+3,void,"¥9,999"
+4,paid,¥49.25

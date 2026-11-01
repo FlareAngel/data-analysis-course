@@ -1,0 +1,6 @@
+{
+  "description": "核对2023年东北区已入账发票并统计金额严格一致的发票数",
+  "task_statement": "data.csv 混合 HEADER（发票头）与 LINE（明细）两类记录，通过 invoice_id 关联；每张发票恰有至多一个 HEADER，LINE 可多行。筛选发票头 invoice_date 在2023年、region=NE（地区双字母由 N/S北南与 E/W东西组成）、state=POSTED。对每个候选发票：必须至少存在一条 LINE；将该发票所有 LINE 的 line_amount 用 Decimal 加总；仅当加总结果与该 HEADER 的 declared_total **精确相等（差额必须为0，不使用容差）**时计1张；没有 LINE 的发票不可计入。LINE 自身 region、state、date 只供追溯，不用来替代 HEADER 归属判定。输出 JSON {\"answer\": 整数}。",
+  "hypothesized_failure_mode": "FM_VERIFICATION",
+  "answer": 14
+}

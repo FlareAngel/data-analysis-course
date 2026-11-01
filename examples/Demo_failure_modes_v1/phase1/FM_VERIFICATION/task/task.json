@@ -1,0 +1,9 @@
+{
+  "description": "对账校验并找出不平衡批次",
+  "task_statement": "数据文件：data.csv。每个batch_id包含debit与credit两类金额，金额按数值处理。输出借贷合计不相等的batch_id列表，按字母升序；完全相等的批次不得返回。 只输出要求的JSON answer值，不附加解释。",
+  "hypothesized_failure_mode": "FM_VERIFICATION",
+  "answer": [
+    "B",
+    "D"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "description": "统计2023年东北区至少购买两笔合格订单的独立客户数",
+  "task_statement": "data.csv 的一行是一个订单明细行（不是一笔订单）。line_id 唯一；order_id 标识订单；customer_id 标识客户。region 由 N/S（北/南）与 E/W（东/西）组成的两字符方位编码，CN=中部。统计订单日期位于2023年、region对应东北、status=PAID，并且同一订单至少存在一行 sku=KIT 且 qty>=2 的订单。一个订单的多个 KIT 明细只算一笔；同一个客户满足条件的不同 order_id 至少有两笔时，该客户计数一次。输出 JSON {\"answer\": 整数}。",
+  "hypothesized_failure_mode": "FM_SCHEMA",
+  "answer": 14
+}

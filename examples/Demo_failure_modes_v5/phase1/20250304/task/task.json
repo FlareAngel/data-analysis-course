@@ -1,0 +1,20 @@
+{
+  "description": "按金额及多级并列规则排名2023年东北区线上发票并输出有序前七名",
+  "task_statement": "data.csv每行是一张独立发票，created_at为开票时间、amount为金额；geo_ref的A1、A2、NE-A、NE-B均指东北，B1/B2、C1/C2、D1/D2、E1/E2分别指西北、东南、西南、中部，geo_adjust的NONE或STAY表示方向不变，FLIP_EW或SWAP_EW表示东西对调，FLIP_NS或SWAP_NS表示南北对调，以校正后地区为准；record_class的L1/L2有效、T1/Q1无效，但override_code为FORCE_KEEP或KEEP时强制保留，为FORCE_DROP或DROP时强制排除，为NONE或AUTO时才按record_class决定，覆盖规则优先；touch_code的M1/M2/MOBILE/APP_CLIENT表示APP，W1/W2/BROWSER/WEB_H5表示WEB，S1/S2为STORE，P1/P2为PARTNER，自营线上仅含APP和WEB；status_code中的Z02A、Z02B、PAID、PAY_OK都表示已支付、Z06A/Z06B表示未支付UNPAID、Z05A/Z05B表示作废VOID；money_unit为YUAN或CNY时表示元，为CENT或FEN时表示分（除以100转元），金额按Decimal计算；只选created_at发生在2023年、地区为东北、渠道为自营线上且状态为PAID的发票，按换算成元的amount数值从大到小排序，若金额相同再按created_at从早到晚排序，仍相同则按invoice_id字典序升序排列，取前7张并列出第7张的金额；仅输出合法JSON，顶层仅有answer，其值为只含top7_invoice_ids和rank7两个键的对象，其中top7_invoice_ids是严格按名次排列的7个字符串ID数组，rank7只含字符串invoice_id及两位小数的金额字符串amount，且invoice_id必须等于数组第7项，不得增加字段或文字。",
+  "hypothesized_failure_mode": "FM_FILTER_SORT",
+  "answer": {
+    "top7_invoice_ids": [
+      "I9002",
+      "I9003",
+      "I9004",
+      "I9005",
+      "I1171",
+      "I1129",
+      "I1032"
+    ],
+    "rank7": {
+      "invoice_id": "I1032",
+      "amount": "1800.00"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "description": "解析东北区混合金额字符串并输出净额的整数分单位与异常记法计数",
+  "task_statement": "data.csv 的 amount_text 全部按字符串处理，逗号是千分位，前导 + 是正号，括号如 (35.25) 表示负数，“—” 表示缺失且跳过；数值 0.00 不是缺失。is_posted 以字符 '1' 为已记账。region 是由 N/S（北/南）和 E/W（东/西）拼成的两位代码，CN 表示中部；应根据中文方向词推导地区代码，而不是用中文字符串直接匹配数据。 仅计算 2023 年东北、is_posted='1'、kind='销售' 的记录。先严格解析每行非缺失金额，用 Decimal 求和；最终将精确净额转换为整数分（金额×100），并另行统计符合筛选条件的负数金额行数、缺失行数。不得 float 转字符串后估算分单位。\n输出契约：只输出一个合法 JSON 对象，顶层只能有 answer 一个键；不得加 Markdown、解释、其他键。JSON 的整数、数字、字符串、数组、布尔值、null 互不等价，必须严格遵守下列类型和内部键集合；对象键出现的先后顺序不作要求。\n精确数据结构：answer 必须是对象，恰有 {\"net_cents\":整数,\"negative_row_count\":整数,\"missing_row_count\":整数}，所有值都是 JSON 整数（包括负整数），不能出现货币符号、浮点数或引号包裹的数字。",
+  "hypothesized_failure_mode": "FM_DATA_TYPE",
+  "answer": {
+    "net_cents": 2024802,
+    "negative_row_count": 3,
+    "missing_row_count": 1
+  }
+}
